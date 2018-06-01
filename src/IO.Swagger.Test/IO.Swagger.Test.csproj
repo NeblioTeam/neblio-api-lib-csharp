@@ -4,7 +4,7 @@ Neblio REST API Suite
 
 APIs for Interacting with NTP1 Tokens & The Neblio Blockchain
 
-OpenAPI spec version: 1.1.1
+OpenAPI spec version: 1.2.0
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -81,7 +81,7 @@ OpenAPI spec version: 1.1.1
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\IO.Swagger\IO.Swagger.csproj">
-          <Project>{B6575649-797E-4F8C-93D0-C044FF6A414E}</Project>
+          <Project>{B809A2B2-0EFF-46C1-944C-F5DF9FFAF71C}</Project>
           <Name>IO.Swagger</Name>
       </ProjectReference>
   </ItemGroup>
