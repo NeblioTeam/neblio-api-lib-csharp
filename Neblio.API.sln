@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neblio.API", "src\Neblio.API\Neblio.API.csproj", "{7C16370E-41A3-47D3-8B7F-655F3193FA6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neblio.API", "src\Neblio.API\Neblio.API.csproj", "{1D31A63C-0F53-4517-B965-3022B9B95E58}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neblio.API.Test", "src\Neblio.API.Test\Neblio.API.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7C16370E-41A3-47D3-8B7F-655F3193FA6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C16370E-41A3-47D3-8B7F-655F3193FA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C16370E-41A3-47D3-8B7F-655F3193FA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C16370E-41A3-47D3-8B7F-655F3193FA6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D31A63C-0F53-4517-B965-3022B9B95E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D31A63C-0F53-4517-B965-3022B9B95E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D31A63C-0F53-4517-B965-3022B9B95E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D31A63C-0F53-4517-B965-3022B9B95E58}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
