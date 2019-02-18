@@ -4,12 +4,12 @@ All URIs are relative to *https://ntp1node.nebl.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**RPC**](JSONRPCApi.md#rpc) | **POST** / | Send a JSON-RPC call to a localhost neblio-Qt or nebliod node
+[**JsonRpc**](JSONRPCApi.md#jsonrpc) | **POST** / | Send a JSON-RPC call to a localhost neblio-Qt or nebliod node
 
 
-<a name="rpc"></a>
-# **RPC**
-> RpcResponse RPC (RpcRequest rpcRequest)
+<a name="jsonrpc"></a>
+# **JsonRpc**
+> RpcResponse JsonRpc (RpcRequest rpcRequest)
 
 Send a JSON-RPC call to a localhost neblio-Qt or nebliod node
 
@@ -25,7 +25,7 @@ using Neblio.API.Model;
 
 namespace Example
 {
-    public class RPCExample
+    public class JsonRpcExample
     {
         public void main()
         {
@@ -39,12 +39,12 @@ namespace Example
             try
             {
                 // Send a JSON-RPC call to a localhost neblio-Qt or nebliod node
-                RpcResponse result = apiInstance.RPC(rpcRequest);
+                RpcResponse result = apiInstance.JsonRpc(rpcRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling JSONRPCApi.RPC: " + e.Message );
+                Debug.Print("Exception when calling JSONRPCApi.JsonRpc: " + e.Message );
             }
         }
     }

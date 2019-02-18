@@ -33,7 +33,7 @@ namespace Neblio.API.Api
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rpcRequest"></param>
         /// <returns>RpcResponse</returns>
-        RpcResponse RPC (RpcRequest rpcRequest);
+        RpcResponse JsonRpc (RpcRequest rpcRequest);
 
         /// <summary>
         /// Send a JSON-RPC call to a localhost neblio-Qt or nebliod node
@@ -44,7 +44,7 @@ namespace Neblio.API.Api
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rpcRequest"></param>
         /// <returns>ApiResponse of RpcResponse</returns>
-        ApiResponse<RpcResponse> RPCWithHttpInfo (RpcRequest rpcRequest);
+        ApiResponse<RpcResponse> JsonRpcWithHttpInfo (RpcRequest rpcRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -56,7 +56,7 @@ namespace Neblio.API.Api
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rpcRequest"></param>
         /// <returns>Task of RpcResponse</returns>
-        System.Threading.Tasks.Task<RpcResponse> RPCAsync (RpcRequest rpcRequest);
+        System.Threading.Tasks.Task<RpcResponse> JsonRpcAsync (RpcRequest rpcRequest);
 
         /// <summary>
         /// Send a JSON-RPC call to a localhost neblio-Qt or nebliod node
@@ -67,7 +67,7 @@ namespace Neblio.API.Api
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rpcRequest"></param>
         /// <returns>Task of ApiResponse (RpcResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RpcResponse>> RPCAsyncWithHttpInfo (RpcRequest rpcRequest);
+        System.Threading.Tasks.Task<ApiResponse<RpcResponse>> JsonRpcAsyncWithHttpInfo (RpcRequest rpcRequest);
         #endregion Asynchronous Operations
     }
 
@@ -185,9 +185,9 @@ namespace Neblio.API.Api
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rpcRequest"></param>
         /// <returns>RpcResponse</returns>
-        public RpcResponse RPC (RpcRequest rpcRequest)
+        public RpcResponse JsonRpc (RpcRequest rpcRequest)
         {
-             ApiResponse<RpcResponse> localVarResponse = RPCWithHttpInfo(rpcRequest);
+             ApiResponse<RpcResponse> localVarResponse = JsonRpcWithHttpInfo(rpcRequest);
              return localVarResponse.Data;
         }
 
@@ -197,11 +197,11 @@ namespace Neblio.API.Api
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rpcRequest"></param>
         /// <returns>ApiResponse of RpcResponse</returns>
-        public ApiResponse< RpcResponse > RPCWithHttpInfo (RpcRequest rpcRequest)
+        public ApiResponse< RpcResponse > JsonRpcWithHttpInfo (RpcRequest rpcRequest)
         {
             // verify the required parameter 'rpcRequest' is set
             if (rpcRequest == null)
-                throw new ApiException(400, "Missing required parameter 'rpcRequest' when calling JSONRPCApi->RPC");
+                throw new ApiException(400, "Missing required parameter 'rpcRequest' when calling JSONRPCApi->JsonRpc");
 
             var localVarPath = "/";
             var localVarPathParams = new Dictionary<String, String>();
@@ -250,7 +250,7 @@ namespace Neblio.API.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("RPC", localVarResponse);
+                Exception exception = ExceptionFactory("JsonRpc", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -265,9 +265,9 @@ namespace Neblio.API.Api
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rpcRequest"></param>
         /// <returns>Task of RpcResponse</returns>
-        public async System.Threading.Tasks.Task<RpcResponse> RPCAsync (RpcRequest rpcRequest)
+        public async System.Threading.Tasks.Task<RpcResponse> JsonRpcAsync (RpcRequest rpcRequest)
         {
-             ApiResponse<RpcResponse> localVarResponse = await RPCAsyncWithHttpInfo(rpcRequest);
+             ApiResponse<RpcResponse> localVarResponse = await JsonRpcAsyncWithHttpInfo(rpcRequest);
              return localVarResponse.Data;
 
         }
@@ -278,11 +278,11 @@ namespace Neblio.API.Api
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rpcRequest"></param>
         /// <returns>Task of ApiResponse (RpcResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<RpcResponse>> RPCAsyncWithHttpInfo (RpcRequest rpcRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<RpcResponse>> JsonRpcAsyncWithHttpInfo (RpcRequest rpcRequest)
         {
             // verify the required parameter 'rpcRequest' is set
             if (rpcRequest == null)
-                throw new ApiException(400, "Missing required parameter 'rpcRequest' when calling JSONRPCApi->RPC");
+                throw new ApiException(400, "Missing required parameter 'rpcRequest' when calling JSONRPCApi->JsonRpc");
 
             var localVarPath = "/";
             var localVarPathParams = new Dictionary<String, String>();
@@ -331,7 +331,7 @@ namespace Neblio.API.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("RPC", localVarResponse);
+                Exception exception = ExceptionFactory("JsonRpc", localVarResponse);
                 if (exception != null) throw exception;
             }
 
