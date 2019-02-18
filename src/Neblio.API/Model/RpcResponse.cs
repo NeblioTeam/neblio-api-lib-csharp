@@ -25,35 +25,44 @@ using OpenAPIDateConverter = Neblio.API.Client.OpenAPIDateConverter;
 namespace Neblio.API.Model
 {
     /// <summary>
-    /// IssueTokenRequestMetadataRulesFees
+    /// Object containing the JSON response from the Neblio node.
     /// </summary>
     [DataContract]
-    public partial class IssueTokenRequestMetadataRulesFees :  IEquatable<IssueTokenRequestMetadataRulesFees>, IValidatableObject
+    public partial class RpcResponse :  IEquatable<RpcResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="IssueTokenRequestMetadataRulesFees" /> class.
+        /// Initializes a new instance of the <see cref="RpcResponse" /> class.
         /// </summary>
-        /// <param name="items">Array of objects describing fee rules.</param>
-        /// <param name="locked">Whether this rule can be modified in future transactions.</param>
-        public IssueTokenRequestMetadataRulesFees(List<IssueTokenRequestMetadataRulesFeesItems> items = default(List<IssueTokenRequestMetadataRulesFeesItems>), bool? locked = default(bool?))
+        /// <param name="result">Object containing the response output..</param>
+        /// <param name="id">Identifier of RCP caller.</param>
+        /// <param name="error">Object containing any error information..</param>
+        public RpcResponse(Object result = default(Object), string id = default(string), Object error = default(Object))
         {
-            this.Items = items;
-            this.Locked = locked;
+            this.Result = result;
+            this.Id = id;
+            this.Error = error;
         }
         
         /// <summary>
-        /// Array of objects describing fee rules
+        /// Object containing the response output.
         /// </summary>
-        /// <value>Array of objects describing fee rules</value>
-        [DataMember(Name="items", EmitDefaultValue=false)]
-        public List<IssueTokenRequestMetadataRulesFeesItems> Items { get; set; }
+        /// <value>Object containing the response output.</value>
+        [DataMember(Name="result", EmitDefaultValue=false)]
+        public Object Result { get; set; }
 
         /// <summary>
-        /// Whether this rule can be modified in future transactions
+        /// Identifier of RCP caller
         /// </summary>
-        /// <value>Whether this rule can be modified in future transactions</value>
-        [DataMember(Name="locked", EmitDefaultValue=false)]
-        public bool? Locked { get; set; }
+        /// <value>Identifier of RCP caller</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Object containing any error information.
+        /// </summary>
+        /// <value>Object containing any error information.</value>
+        [DataMember(Name="error", EmitDefaultValue=false)]
+        public Object Error { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +71,10 @@ namespace Neblio.API.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class IssueTokenRequestMetadataRulesFees {\n");
-            sb.Append("  Items: ").Append(Items).Append("\n");
-            sb.Append("  Locked: ").Append(Locked).Append("\n");
+            sb.Append("class RpcResponse {\n");
+            sb.Append("  Result: ").Append(Result).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +95,34 @@ namespace Neblio.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as IssueTokenRequestMetadataRulesFees);
+            return this.Equals(input as RpcResponse);
         }
 
         /// <summary>
-        /// Returns true if IssueTokenRequestMetadataRulesFees instances are equal
+        /// Returns true if RpcResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of IssueTokenRequestMetadataRulesFees to be compared</param>
+        /// <param name="input">Instance of RpcResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(IssueTokenRequestMetadataRulesFees input)
+        public bool Equals(RpcResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Items == input.Items ||
-                    this.Items != null &&
-                    this.Items.SequenceEqual(input.Items)
+                    this.Result == input.Result ||
+                    (this.Result != null &&
+                    this.Result.Equals(input.Result))
                 ) && 
                 (
-                    this.Locked == input.Locked ||
-                    (this.Locked != null &&
-                    this.Locked.Equals(input.Locked))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Error == input.Error ||
+                    (this.Error != null &&
+                    this.Error.Equals(input.Error))
                 );
         }
 
@@ -120,10 +135,12 @@ namespace Neblio.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Items != null)
-                    hashCode = hashCode * 59 + this.Items.GetHashCode();
-                if (this.Locked != null)
-                    hashCode = hashCode * 59 + this.Locked.GetHashCode();
+                if (this.Result != null)
+                    hashCode = hashCode * 59 + this.Result.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Error != null)
+                    hashCode = hashCode * 59 + this.Error.GetHashCode();
                 return hashCode;
             }
         }

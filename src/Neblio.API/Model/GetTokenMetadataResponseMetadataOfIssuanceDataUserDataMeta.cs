@@ -33,25 +33,25 @@ namespace Neblio.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetTokenMetadataResponseMetadataOfIssuanceDataUserDataMeta" /> class.
         /// </summary>
-        /// <param name="value">value.</param>
         /// <param name="key">key.</param>
-        public GetTokenMetadataResponseMetadataOfIssuanceDataUserDataMeta(string value = default(string), string key = default(string))
+        /// <param name="value">value.</param>
+        public GetTokenMetadataResponseMetadataOfIssuanceDataUserDataMeta(string key = default(string), string value = default(string))
         {
-            this.Value = value;
             this.Key = key;
+            this.Value = value;
         }
         
-        /// <summary>
-        /// Gets or Sets Value
-        /// </summary>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public string Value { get; set; }
-
         /// <summary>
         /// Gets or Sets Key
         /// </summary>
         [DataMember(Name="key", EmitDefaultValue=false)]
         public string Key { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Value
+        /// </summary>
+        [DataMember(Name="value", EmitDefaultValue=false)]
+        public string Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,8 +61,8 @@ namespace Neblio.API.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GetTokenMetadataResponseMetadataOfIssuanceDataUserDataMeta {\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,14 +98,14 @@ namespace Neblio.API.Model
 
             return 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
-                ) && 
-                (
                     this.Key == input.Key ||
                     (this.Key != null &&
                     this.Key.Equals(input.Key))
+                ) && 
+                (
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -118,10 +118,10 @@ namespace Neblio.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.Key != null)
                     hashCode = hashCode * 59 + this.Key.GetHashCode();
+                if (this.Value != null)
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 return hashCode;
             }
         }

@@ -33,40 +33,26 @@ namespace Neblio.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetAddressInfoResponseUtxos" /> class.
         /// </summary>
-        /// <param name="scriptPubKey">Object representing the scruptPubKey of the UTXO.</param>
-        /// <param name="blocktime">Blocktime of the UTXO.</param>
         /// <param name="index">Index of the UTXO at this address.</param>
         /// <param name="txid">Txid of this UTXO.</param>
-        /// <param name="tokens">Array of NTP1 tokens in this UTXO..</param>
+        /// <param name="blockheight">Blockheight of the UTXO.</param>
+        /// <param name="blocktime">Blocktime of the UTXO.</param>
+        /// <param name="scriptPubKey">Object representing the scruptPubKey of the UTXO.</param>
         /// <param name="used">Whether the UTXO has been used.</param>
         /// <param name="value">Value of the UTXO in NEBL satoshi.</param>
-        /// <param name="blockheight">Blockheight of the UTXO.</param>
-        public GetAddressInfoResponseUtxos(Object scriptPubKey = default(Object), decimal? blocktime = default(decimal?), decimal? index = default(decimal?), string txid = default(string), List<GetAddressInfoResponseTokens> tokens = default(List<GetAddressInfoResponseTokens>), bool? used = default(bool?), decimal? value = default(decimal?), decimal? blockheight = default(decimal?))
+        /// <param name="tokens">Array of NTP1 tokens in this UTXO..</param>
+        public GetAddressInfoResponseUtxos(decimal? index = default(decimal?), string txid = default(string), decimal? blockheight = default(decimal?), decimal? blocktime = default(decimal?), Object scriptPubKey = default(Object), bool? used = default(bool?), decimal? value = default(decimal?), List<GetAddressInfoResponseTokens> tokens = default(List<GetAddressInfoResponseTokens>))
         {
-            this.ScriptPubKey = scriptPubKey;
-            this.Blocktime = blocktime;
             this.Index = index;
             this.Txid = txid;
-            this.Tokens = tokens;
+            this.Blockheight = blockheight;
+            this.Blocktime = blocktime;
+            this.ScriptPubKey = scriptPubKey;
             this.Used = used;
             this.Value = value;
-            this.Blockheight = blockheight;
+            this.Tokens = tokens;
         }
         
-        /// <summary>
-        /// Object representing the scruptPubKey of the UTXO
-        /// </summary>
-        /// <value>Object representing the scruptPubKey of the UTXO</value>
-        [DataMember(Name="scriptPubKey", EmitDefaultValue=false)]
-        public Object ScriptPubKey { get; set; }
-
-        /// <summary>
-        /// Blocktime of the UTXO
-        /// </summary>
-        /// <value>Blocktime of the UTXO</value>
-        [DataMember(Name="blocktime", EmitDefaultValue=false)]
-        public decimal? Blocktime { get; set; }
-
         /// <summary>
         /// Index of the UTXO at this address
         /// </summary>
@@ -82,11 +68,25 @@ namespace Neblio.API.Model
         public string Txid { get; set; }
 
         /// <summary>
-        /// Array of NTP1 tokens in this UTXO.
+        /// Blockheight of the UTXO
         /// </summary>
-        /// <value>Array of NTP1 tokens in this UTXO.</value>
-        [DataMember(Name="tokens", EmitDefaultValue=false)]
-        public List<GetAddressInfoResponseTokens> Tokens { get; set; }
+        /// <value>Blockheight of the UTXO</value>
+        [DataMember(Name="blockheight", EmitDefaultValue=false)]
+        public decimal? Blockheight { get; set; }
+
+        /// <summary>
+        /// Blocktime of the UTXO
+        /// </summary>
+        /// <value>Blocktime of the UTXO</value>
+        [DataMember(Name="blocktime", EmitDefaultValue=false)]
+        public decimal? Blocktime { get; set; }
+
+        /// <summary>
+        /// Object representing the scruptPubKey of the UTXO
+        /// </summary>
+        /// <value>Object representing the scruptPubKey of the UTXO</value>
+        [DataMember(Name="scriptPubKey", EmitDefaultValue=false)]
+        public Object ScriptPubKey { get; set; }
 
         /// <summary>
         /// Whether the UTXO has been used
@@ -103,11 +103,11 @@ namespace Neblio.API.Model
         public decimal? Value { get; set; }
 
         /// <summary>
-        /// Blockheight of the UTXO
+        /// Array of NTP1 tokens in this UTXO.
         /// </summary>
-        /// <value>Blockheight of the UTXO</value>
-        [DataMember(Name="blockheight", EmitDefaultValue=false)]
-        public decimal? Blockheight { get; set; }
+        /// <value>Array of NTP1 tokens in this UTXO.</value>
+        [DataMember(Name="tokens", EmitDefaultValue=false)]
+        public List<GetAddressInfoResponseTokens> Tokens { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -117,14 +117,14 @@ namespace Neblio.API.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GetAddressInfoResponseUtxos {\n");
-            sb.Append("  ScriptPubKey: ").Append(ScriptPubKey).Append("\n");
-            sb.Append("  Blocktime: ").Append(Blocktime).Append("\n");
             sb.Append("  Index: ").Append(Index).Append("\n");
             sb.Append("  Txid: ").Append(Txid).Append("\n");
-            sb.Append("  Tokens: ").Append(Tokens).Append("\n");
+            sb.Append("  Blockheight: ").Append(Blockheight).Append("\n");
+            sb.Append("  Blocktime: ").Append(Blocktime).Append("\n");
+            sb.Append("  ScriptPubKey: ").Append(ScriptPubKey).Append("\n");
             sb.Append("  Used: ").Append(Used).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
-            sb.Append("  Blockheight: ").Append(Blockheight).Append("\n");
+            sb.Append("  Tokens: ").Append(Tokens).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -160,16 +160,6 @@ namespace Neblio.API.Model
 
             return 
                 (
-                    this.ScriptPubKey == input.ScriptPubKey ||
-                    (this.ScriptPubKey != null &&
-                    this.ScriptPubKey.Equals(input.ScriptPubKey))
-                ) && 
-                (
-                    this.Blocktime == input.Blocktime ||
-                    (this.Blocktime != null &&
-                    this.Blocktime.Equals(input.Blocktime))
-                ) && 
-                (
                     this.Index == input.Index ||
                     (this.Index != null &&
                     this.Index.Equals(input.Index))
@@ -180,9 +170,19 @@ namespace Neblio.API.Model
                     this.Txid.Equals(input.Txid))
                 ) && 
                 (
-                    this.Tokens == input.Tokens ||
-                    this.Tokens != null &&
-                    this.Tokens.SequenceEqual(input.Tokens)
+                    this.Blockheight == input.Blockheight ||
+                    (this.Blockheight != null &&
+                    this.Blockheight.Equals(input.Blockheight))
+                ) && 
+                (
+                    this.Blocktime == input.Blocktime ||
+                    (this.Blocktime != null &&
+                    this.Blocktime.Equals(input.Blocktime))
+                ) && 
+                (
+                    this.ScriptPubKey == input.ScriptPubKey ||
+                    (this.ScriptPubKey != null &&
+                    this.ScriptPubKey.Equals(input.ScriptPubKey))
                 ) && 
                 (
                     this.Used == input.Used ||
@@ -195,9 +195,9 @@ namespace Neblio.API.Model
                     this.Value.Equals(input.Value))
                 ) && 
                 (
-                    this.Blockheight == input.Blockheight ||
-                    (this.Blockheight != null &&
-                    this.Blockheight.Equals(input.Blockheight))
+                    this.Tokens == input.Tokens ||
+                    this.Tokens != null &&
+                    this.Tokens.SequenceEqual(input.Tokens)
                 );
         }
 
@@ -210,22 +210,22 @@ namespace Neblio.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ScriptPubKey != null)
-                    hashCode = hashCode * 59 + this.ScriptPubKey.GetHashCode();
-                if (this.Blocktime != null)
-                    hashCode = hashCode * 59 + this.Blocktime.GetHashCode();
                 if (this.Index != null)
                     hashCode = hashCode * 59 + this.Index.GetHashCode();
                 if (this.Txid != null)
                     hashCode = hashCode * 59 + this.Txid.GetHashCode();
-                if (this.Tokens != null)
-                    hashCode = hashCode * 59 + this.Tokens.GetHashCode();
+                if (this.Blockheight != null)
+                    hashCode = hashCode * 59 + this.Blockheight.GetHashCode();
+                if (this.Blocktime != null)
+                    hashCode = hashCode * 59 + this.Blocktime.GetHashCode();
+                if (this.ScriptPubKey != null)
+                    hashCode = hashCode * 59 + this.ScriptPubKey.GetHashCode();
                 if (this.Used != null)
                     hashCode = hashCode * 59 + this.Used.GetHashCode();
                 if (this.Value != null)
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
-                if (this.Blockheight != null)
-                    hashCode = hashCode * 59 + this.Blockheight.GetHashCode();
+                if (this.Tokens != null)
+                    hashCode = hashCode * 59 + this.Tokens.GetHashCode();
                 return hashCode;
             }
         }

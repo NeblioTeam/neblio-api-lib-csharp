@@ -33,24 +33,45 @@ namespace Neblio.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueTokenRequestMetadata" /> class.
         /// </summary>
+        /// <param name="tokenName">Token Symbol it will be identified by (ex. NIBBL).</param>
+        /// <param name="issuer">Name of token issuer.</param>
+        /// <param name="description">Long name or description of token (ex. Nibble).</param>
         /// <param name="urls">urls.</param>
         /// <param name="userData">userData.</param>
-        /// <param name="tokenName">Token Symbol it will be identified by (ex. NIBBL).</param>
-        /// <param name="description">Long name or description of token (ex. Nibble).</param>
         /// <param name="encryptions">Array of encryption instruction objects for encrypting userData.</param>
         /// <param name="rules">rules.</param>
-        /// <param name="issuer">Name of token issuer.</param>
-        public IssueTokenRequestMetadata(List<IssueTokenRequestMetadataUrls> urls = default(List<IssueTokenRequestMetadataUrls>), GetTokenMetadataResponseMetadataOfIssuanceDataUserData userData = default(GetTokenMetadataResponseMetadataOfIssuanceDataUserData), string tokenName = default(string), string description = default(string), List<IssueTokenRequestMetadataEncryptions> encryptions = default(List<IssueTokenRequestMetadataEncryptions>), IssueTokenRequestMetadataRules rules = default(IssueTokenRequestMetadataRules), string issuer = default(string))
+        public IssueTokenRequestMetadata(string tokenName = default(string), string issuer = default(string), string description = default(string), List<IssueTokenRequestMetadataUrls> urls = default(List<IssueTokenRequestMetadataUrls>), GetTokenMetadataResponseMetadataOfIssuanceDataUserData userData = default(GetTokenMetadataResponseMetadataOfIssuanceDataUserData), List<IssueTokenRequestMetadataEncryptions> encryptions = default(List<IssueTokenRequestMetadataEncryptions>), IssueTokenRequestMetadataRules rules = default(IssueTokenRequestMetadataRules))
         {
+            this.TokenName = tokenName;
+            this.Issuer = issuer;
+            this.Description = description;
             this.Urls = urls;
             this.UserData = userData;
-            this.TokenName = tokenName;
-            this.Description = description;
             this.Encryptions = encryptions;
             this.Rules = rules;
-            this.Issuer = issuer;
         }
         
+        /// <summary>
+        /// Token Symbol it will be identified by (ex. NIBBL)
+        /// </summary>
+        /// <value>Token Symbol it will be identified by (ex. NIBBL)</value>
+        [DataMember(Name="tokenName", EmitDefaultValue=false)]
+        public string TokenName { get; set; }
+
+        /// <summary>
+        /// Name of token issuer
+        /// </summary>
+        /// <value>Name of token issuer</value>
+        [DataMember(Name="issuer", EmitDefaultValue=false)]
+        public string Issuer { get; set; }
+
+        /// <summary>
+        /// Long name or description of token (ex. Nibble)
+        /// </summary>
+        /// <value>Long name or description of token (ex. Nibble)</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
+
         /// <summary>
         /// Gets or Sets Urls
         /// </summary>
@@ -62,20 +83,6 @@ namespace Neblio.API.Model
         /// </summary>
         [DataMember(Name="userData", EmitDefaultValue=false)]
         public GetTokenMetadataResponseMetadataOfIssuanceDataUserData UserData { get; set; }
-
-        /// <summary>
-        /// Token Symbol it will be identified by (ex. NIBBL)
-        /// </summary>
-        /// <value>Token Symbol it will be identified by (ex. NIBBL)</value>
-        [DataMember(Name="tokenName", EmitDefaultValue=false)]
-        public string TokenName { get; set; }
-
-        /// <summary>
-        /// Long name or description of token (ex. Nibble)
-        /// </summary>
-        /// <value>Long name or description of token (ex. Nibble)</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
 
         /// <summary>
         /// Array of encryption instruction objects for encrypting userData
@@ -91,13 +98,6 @@ namespace Neblio.API.Model
         public IssueTokenRequestMetadataRules Rules { get; set; }
 
         /// <summary>
-        /// Name of token issuer
-        /// </summary>
-        /// <value>Name of token issuer</value>
-        [DataMember(Name="issuer", EmitDefaultValue=false)]
-        public string Issuer { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,13 +105,13 @@ namespace Neblio.API.Model
         {
             var sb = new StringBuilder();
             sb.Append("class IssueTokenRequestMetadata {\n");
+            sb.Append("  TokenName: ").Append(TokenName).Append("\n");
+            sb.Append("  Issuer: ").Append(Issuer).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Urls: ").Append(Urls).Append("\n");
             sb.Append("  UserData: ").Append(UserData).Append("\n");
-            sb.Append("  TokenName: ").Append(TokenName).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Encryptions: ").Append(Encryptions).Append("\n");
             sb.Append("  Rules: ").Append(Rules).Append("\n");
-            sb.Append("  Issuer: ").Append(Issuer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,6 +147,21 @@ namespace Neblio.API.Model
 
             return 
                 (
+                    this.TokenName == input.TokenName ||
+                    (this.TokenName != null &&
+                    this.TokenName.Equals(input.TokenName))
+                ) && 
+                (
+                    this.Issuer == input.Issuer ||
+                    (this.Issuer != null &&
+                    this.Issuer.Equals(input.Issuer))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
                     this.Urls == input.Urls ||
                     this.Urls != null &&
                     this.Urls.SequenceEqual(input.Urls)
@@ -157,16 +172,6 @@ namespace Neblio.API.Model
                     this.UserData.Equals(input.UserData))
                 ) && 
                 (
-                    this.TokenName == input.TokenName ||
-                    (this.TokenName != null &&
-                    this.TokenName.Equals(input.TokenName))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
                     this.Encryptions == input.Encryptions ||
                     this.Encryptions != null &&
                     this.Encryptions.SequenceEqual(input.Encryptions)
@@ -175,11 +180,6 @@ namespace Neblio.API.Model
                     this.Rules == input.Rules ||
                     (this.Rules != null &&
                     this.Rules.Equals(input.Rules))
-                ) && 
-                (
-                    this.Issuer == input.Issuer ||
-                    (this.Issuer != null &&
-                    this.Issuer.Equals(input.Issuer))
                 );
         }
 
@@ -192,20 +192,20 @@ namespace Neblio.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.TokenName != null)
+                    hashCode = hashCode * 59 + this.TokenName.GetHashCode();
+                if (this.Issuer != null)
+                    hashCode = hashCode * 59 + this.Issuer.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Urls != null)
                     hashCode = hashCode * 59 + this.Urls.GetHashCode();
                 if (this.UserData != null)
                     hashCode = hashCode * 59 + this.UserData.GetHashCode();
-                if (this.TokenName != null)
-                    hashCode = hashCode * 59 + this.TokenName.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Encryptions != null)
                     hashCode = hashCode * 59 + this.Encryptions.GetHashCode();
                 if (this.Rules != null)
                     hashCode = hashCode * 59 + this.Rules.GetHashCode();
-                if (this.Issuer != null)
-                    hashCode = hashCode * 59 + this.Issuer.GetHashCode();
                 return hashCode;
             }
         }

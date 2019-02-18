@@ -815,7 +815,7 @@ No authorization required
 
 <a name="sendtx"></a>
 # **SendTx**
-> BroadcastTxResponse SendTx (SendTxRequest body)
+> BroadcastTxResponse SendTx (SendTxRequest sendTxRequest)
 
 Broadcasts a signed raw transaction to the network (not NTP1 specific)
 
@@ -836,12 +836,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new InsightApi();
-            var body = new SendTxRequest(); // SendTxRequest | Object representing a transaction to broadcast
+            var sendTxRequest = new SendTxRequest(); // SendTxRequest | Object representing a transaction to broadcast
 
             try
             {
                 // Broadcasts a signed raw transaction to the network (not NTP1 specific)
-                BroadcastTxResponse result = apiInstance.SendTx(body);
+                BroadcastTxResponse result = apiInstance.SendTx(sendTxRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -857,7 +857,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**SendTxRequest**](SendTxRequest.md)| Object representing a transaction to broadcast | 
+ **sendTxRequest** | [**SendTxRequest**](SendTxRequest.md)| Object representing a transaction to broadcast | 
 
 ### Return type
 

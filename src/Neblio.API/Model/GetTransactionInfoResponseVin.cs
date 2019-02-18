@@ -33,24 +33,44 @@ namespace Neblio.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetTransactionInfoResponseVin" /> class.
         /// </summary>
+        /// <param name="txid">TXID of the input.</param>
+        /// <param name="vout">output index.</param>
+        /// <param name="scriptSig">scriptSig.</param>
         /// <param name="sequence">sequence.</param>
         /// <param name="previousOutput">previousOutput.</param>
-        /// <param name="scriptSig">scriptSig.</param>
-        /// <param name="txid">TXID of the input.</param>
         /// <param name="tokens">tokens.</param>
         /// <param name="value">Value of input in NEBL satoshi.</param>
-        /// <param name="vout">output index.</param>
-        public GetTransactionInfoResponseVin(decimal? sequence = default(decimal?), GetTransactionInfoResponsePreviousOutput previousOutput = default(GetTransactionInfoResponsePreviousOutput), GetTransactionInfoResponseScriptSig scriptSig = default(GetTransactionInfoResponseScriptSig), string txid = default(string), List<GetTransactionInfoResponseTokens> tokens = default(List<GetTransactionInfoResponseTokens>), decimal? value = default(decimal?), decimal? vout = default(decimal?))
+        public GetTransactionInfoResponseVin(string txid = default(string), decimal? vout = default(decimal?), GetTransactionInfoResponseScriptSig scriptSig = default(GetTransactionInfoResponseScriptSig), decimal? sequence = default(decimal?), GetTransactionInfoResponsePreviousOutput previousOutput = default(GetTransactionInfoResponsePreviousOutput), List<GetTransactionInfoResponseTokens> tokens = default(List<GetTransactionInfoResponseTokens>), decimal? value = default(decimal?))
         {
+            this.Txid = txid;
+            this.Vout = vout;
+            this.ScriptSig = scriptSig;
             this.Sequence = sequence;
             this.PreviousOutput = previousOutput;
-            this.ScriptSig = scriptSig;
-            this.Txid = txid;
             this.Tokens = tokens;
             this.Value = value;
-            this.Vout = vout;
         }
         
+        /// <summary>
+        /// TXID of the input
+        /// </summary>
+        /// <value>TXID of the input</value>
+        [DataMember(Name="txid", EmitDefaultValue=false)]
+        public string Txid { get; set; }
+
+        /// <summary>
+        /// output index
+        /// </summary>
+        /// <value>output index</value>
+        [DataMember(Name="vout", EmitDefaultValue=false)]
+        public decimal? Vout { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ScriptSig
+        /// </summary>
+        [DataMember(Name="scriptSig", EmitDefaultValue=false)]
+        public GetTransactionInfoResponseScriptSig ScriptSig { get; set; }
+
         /// <summary>
         /// Gets or Sets Sequence
         /// </summary>
@@ -62,19 +82,6 @@ namespace Neblio.API.Model
         /// </summary>
         [DataMember(Name="previousOutput", EmitDefaultValue=false)]
         public GetTransactionInfoResponsePreviousOutput PreviousOutput { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ScriptSig
-        /// </summary>
-        [DataMember(Name="scriptSig", EmitDefaultValue=false)]
-        public GetTransactionInfoResponseScriptSig ScriptSig { get; set; }
-
-        /// <summary>
-        /// TXID of the input
-        /// </summary>
-        /// <value>TXID of the input</value>
-        [DataMember(Name="txid", EmitDefaultValue=false)]
-        public string Txid { get; set; }
 
         /// <summary>
         /// Gets or Sets Tokens
@@ -90,13 +97,6 @@ namespace Neblio.API.Model
         public decimal? Value { get; set; }
 
         /// <summary>
-        /// output index
-        /// </summary>
-        /// <value>output index</value>
-        [DataMember(Name="vout", EmitDefaultValue=false)]
-        public decimal? Vout { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,13 +104,13 @@ namespace Neblio.API.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GetTransactionInfoResponseVin {\n");
+            sb.Append("  Txid: ").Append(Txid).Append("\n");
+            sb.Append("  Vout: ").Append(Vout).Append("\n");
+            sb.Append("  ScriptSig: ").Append(ScriptSig).Append("\n");
             sb.Append("  Sequence: ").Append(Sequence).Append("\n");
             sb.Append("  PreviousOutput: ").Append(PreviousOutput).Append("\n");
-            sb.Append("  ScriptSig: ").Append(ScriptSig).Append("\n");
-            sb.Append("  Txid: ").Append(Txid).Append("\n");
             sb.Append("  Tokens: ").Append(Tokens).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
-            sb.Append("  Vout: ").Append(Vout).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -146,6 +146,21 @@ namespace Neblio.API.Model
 
             return 
                 (
+                    this.Txid == input.Txid ||
+                    (this.Txid != null &&
+                    this.Txid.Equals(input.Txid))
+                ) && 
+                (
+                    this.Vout == input.Vout ||
+                    (this.Vout != null &&
+                    this.Vout.Equals(input.Vout))
+                ) && 
+                (
+                    this.ScriptSig == input.ScriptSig ||
+                    (this.ScriptSig != null &&
+                    this.ScriptSig.Equals(input.ScriptSig))
+                ) && 
+                (
                     this.Sequence == input.Sequence ||
                     (this.Sequence != null &&
                     this.Sequence.Equals(input.Sequence))
@@ -156,16 +171,6 @@ namespace Neblio.API.Model
                     this.PreviousOutput.Equals(input.PreviousOutput))
                 ) && 
                 (
-                    this.ScriptSig == input.ScriptSig ||
-                    (this.ScriptSig != null &&
-                    this.ScriptSig.Equals(input.ScriptSig))
-                ) && 
-                (
-                    this.Txid == input.Txid ||
-                    (this.Txid != null &&
-                    this.Txid.Equals(input.Txid))
-                ) && 
-                (
                     this.Tokens == input.Tokens ||
                     this.Tokens != null &&
                     this.Tokens.SequenceEqual(input.Tokens)
@@ -174,11 +179,6 @@ namespace Neblio.API.Model
                     this.Value == input.Value ||
                     (this.Value != null &&
                     this.Value.Equals(input.Value))
-                ) && 
-                (
-                    this.Vout == input.Vout ||
-                    (this.Vout != null &&
-                    this.Vout.Equals(input.Vout))
                 );
         }
 
@@ -191,20 +191,20 @@ namespace Neblio.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Txid != null)
+                    hashCode = hashCode * 59 + this.Txid.GetHashCode();
+                if (this.Vout != null)
+                    hashCode = hashCode * 59 + this.Vout.GetHashCode();
+                if (this.ScriptSig != null)
+                    hashCode = hashCode * 59 + this.ScriptSig.GetHashCode();
                 if (this.Sequence != null)
                     hashCode = hashCode * 59 + this.Sequence.GetHashCode();
                 if (this.PreviousOutput != null)
                     hashCode = hashCode * 59 + this.PreviousOutput.GetHashCode();
-                if (this.ScriptSig != null)
-                    hashCode = hashCode * 59 + this.ScriptSig.GetHashCode();
-                if (this.Txid != null)
-                    hashCode = hashCode * 59 + this.Txid.GetHashCode();
                 if (this.Tokens != null)
                     hashCode = hashCode * 59 + this.Tokens.GetHashCode();
                 if (this.Value != null)
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
-                if (this.Vout != null)
-                    hashCode = hashCode * 59 + this.Vout.GetHashCode();
                 return hashCode;
             }
         }

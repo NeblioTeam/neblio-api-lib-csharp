@@ -33,26 +33,26 @@ namespace Neblio.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueTokenRequestTransfer" /> class.
         /// </summary>
-        /// <param name="amount">amount.</param>
         /// <param name="address">Address to send the amount of issued tokens to.</param>
-        public IssueTokenRequestTransfer(decimal? amount = default(decimal?), string address = default(string))
+        /// <param name="amount">amount.</param>
+        public IssueTokenRequestTransfer(string address = default(string), decimal? amount = default(decimal?))
         {
-            this.Amount = amount;
             this.Address = address;
+            this.Amount = amount;
         }
         
-        /// <summary>
-        /// Gets or Sets Amount
-        /// </summary>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
-        public decimal? Amount { get; set; }
-
         /// <summary>
         /// Address to send the amount of issued tokens to
         /// </summary>
         /// <value>Address to send the amount of issued tokens to</value>
         [DataMember(Name="address", EmitDefaultValue=false)]
         public string Address { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Amount
+        /// </summary>
+        [DataMember(Name="amount", EmitDefaultValue=false)]
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,8 +62,8 @@ namespace Neblio.API.Model
         {
             var sb = new StringBuilder();
             sb.Append("class IssueTokenRequestTransfer {\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,14 +99,14 @@ namespace Neblio.API.Model
 
             return 
                 (
-                    this.Amount == input.Amount ||
-                    (this.Amount != null &&
-                    this.Amount.Equals(input.Amount))
-                ) && 
-                (
                     this.Address == input.Address ||
                     (this.Address != null &&
                     this.Address.Equals(input.Address))
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 );
         }
 
@@ -119,10 +119,10 @@ namespace Neblio.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Amount != null)
-                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.Address != null)
                     hashCode = hashCode * 59 + this.Address.GetHashCode();
+                if (this.Amount != null)
+                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 return hashCode;
             }
         }

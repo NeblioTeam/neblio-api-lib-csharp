@@ -33,32 +33,18 @@ namespace Neblio.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueTokenRequestMetadataEncryptions" /> class.
         /// </summary>
-        /// <param name="format">key format (pem or der).</param>
-        /// <param name="type">pkcs1 or pkcs8.</param>
         /// <param name="key">userData key to encrypt.</param>
         /// <param name="pubkey">RSA public key used for encryption.</param>
-        public IssueTokenRequestMetadataEncryptions(string format = default(string), string type = default(string), string key = default(string), string pubkey = default(string))
+        /// <param name="format">key format (pem or der).</param>
+        /// <param name="type">pkcs1 or pkcs8.</param>
+        public IssueTokenRequestMetadataEncryptions(string key = default(string), string pubkey = default(string), string format = default(string), string type = default(string))
         {
-            this.Format = format;
-            this.Type = type;
             this.Key = key;
             this.Pubkey = pubkey;
+            this.Format = format;
+            this.Type = type;
         }
         
-        /// <summary>
-        /// key format (pem or der)
-        /// </summary>
-        /// <value>key format (pem or der)</value>
-        [DataMember(Name="format", EmitDefaultValue=false)]
-        public string Format { get; set; }
-
-        /// <summary>
-        /// pkcs1 or pkcs8
-        /// </summary>
-        /// <value>pkcs1 or pkcs8</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
         /// <summary>
         /// userData key to encrypt
         /// </summary>
@@ -74,6 +60,20 @@ namespace Neblio.API.Model
         public string Pubkey { get; set; }
 
         /// <summary>
+        /// key format (pem or der)
+        /// </summary>
+        /// <value>key format (pem or der)</value>
+        [DataMember(Name="format", EmitDefaultValue=false)]
+        public string Format { get; set; }
+
+        /// <summary>
+        /// pkcs1 or pkcs8
+        /// </summary>
+        /// <value>pkcs1 or pkcs8</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,10 +81,10 @@ namespace Neblio.API.Model
         {
             var sb = new StringBuilder();
             sb.Append("class IssueTokenRequestMetadataEncryptions {\n");
-            sb.Append("  Format: ").Append(Format).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Pubkey: ").Append(Pubkey).Append("\n");
+            sb.Append("  Format: ").Append(Format).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,16 +120,6 @@ namespace Neblio.API.Model
 
             return 
                 (
-                    this.Format == input.Format ||
-                    (this.Format != null &&
-                    this.Format.Equals(input.Format))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
                     this.Key == input.Key ||
                     (this.Key != null &&
                     this.Key.Equals(input.Key))
@@ -138,6 +128,16 @@ namespace Neblio.API.Model
                     this.Pubkey == input.Pubkey ||
                     (this.Pubkey != null &&
                     this.Pubkey.Equals(input.Pubkey))
+                ) && 
+                (
+                    this.Format == input.Format ||
+                    (this.Format != null &&
+                    this.Format.Equals(input.Format))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -150,14 +150,14 @@ namespace Neblio.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Format != null)
-                    hashCode = hashCode * 59 + this.Format.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Key != null)
                     hashCode = hashCode * 59 + this.Key.GetHashCode();
                 if (this.Pubkey != null)
                     hashCode = hashCode * 59 + this.Pubkey.GetHashCode();
+                if (this.Format != null)
+                    hashCode = hashCode * 59 + this.Format.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }

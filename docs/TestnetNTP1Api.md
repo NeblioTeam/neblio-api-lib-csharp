@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 <a name="testnetbroadcasttx"></a>
 # **TestnetBroadcastTx**
-> BroadcastTxResponse TestnetBroadcastTx (BroadcastTxRequest body)
+> BroadcastTxResponse TestnetBroadcastTx (BroadcastTxRequest broadcastTxRequest)
 
 Broadcasts a signed raw transaction to the network
 
@@ -39,12 +39,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new TestnetNTP1Api();
-            var body = new BroadcastTxRequest(); // BroadcastTxRequest | Object representing a transaction to broadcast
+            var broadcastTxRequest = new BroadcastTxRequest(); // BroadcastTxRequest | Object representing a transaction to broadcast
 
             try
             {
                 // Broadcasts a signed raw transaction to the network
-                BroadcastTxResponse result = apiInstance.TestnetBroadcastTx(body);
+                BroadcastTxResponse result = apiInstance.TestnetBroadcastTx(broadcastTxRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -60,7 +60,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**BroadcastTxRequest**](BroadcastTxRequest.md)| Object representing a transaction to broadcast | 
+ **broadcastTxRequest** | [**BroadcastTxRequest**](BroadcastTxRequest.md)| Object representing a transaction to broadcast | 
 
 ### Return type
 
@@ -79,7 +79,7 @@ No authorization required
 
 <a name="testnetburntoken"></a>
 # **TestnetBurnToken**
-> BurnTokenResponse TestnetBurnToken (BurnTokenRequest body)
+> BurnTokenResponse TestnetBurnToken (BurnTokenRequest burnTokenRequest)
 
 Builds a transaction that burns an NTP1 Token
 
@@ -100,12 +100,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new TestnetNTP1Api();
-            var body = new BurnTokenRequest(); // BurnTokenRequest | Object representing the token to be burned
+            var burnTokenRequest = new BurnTokenRequest(); // BurnTokenRequest | Object representing the token to be burned
 
             try
             {
                 // Builds a transaction that burns an NTP1 Token
-                BurnTokenResponse result = apiInstance.TestnetBurnToken(body);
+                BurnTokenResponse result = apiInstance.TestnetBurnToken(burnTokenRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -121,7 +121,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**BurnTokenRequest**](BurnTokenRequest.md)| Object representing the token to be burned | 
+ **burnTokenRequest** | [**BurnTokenRequest**](BurnTokenRequest.md)| Object representing the token to be burned | 
 
 ### Return type
 
@@ -508,7 +508,7 @@ No authorization required
 
 <a name="testnetissuetoken"></a>
 # **TestnetIssueToken**
-> IssueTokenResponse TestnetIssueToken (IssueTokenRequest body)
+> IssueTokenResponse TestnetIssueToken (IssueTokenRequest issueTokenRequest)
 
 Builds a transaction that issues a new NTP1 Token
 
@@ -529,12 +529,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new TestnetNTP1Api();
-            var body = new IssueTokenRequest(); // IssueTokenRequest | Object representing the token to be created
+            var issueTokenRequest = new IssueTokenRequest(); // IssueTokenRequest | Object representing the token to be created
 
             try
             {
                 // Builds a transaction that issues a new NTP1 Token
-                IssueTokenResponse result = apiInstance.TestnetIssueToken(body);
+                IssueTokenResponse result = apiInstance.TestnetIssueToken(issueTokenRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -550,7 +550,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**IssueTokenRequest**](IssueTokenRequest.md)| Object representing the token to be created | 
+ **issueTokenRequest** | [**IssueTokenRequest**](IssueTokenRequest.md)| Object representing the token to be created | 
 
 ### Return type
 
@@ -569,7 +569,7 @@ No authorization required
 
 <a name="testnetsendtoken"></a>
 # **TestnetSendToken**
-> SendTokenResponse TestnetSendToken (SendTokenRequest body)
+> SendTokenResponse TestnetSendToken (SendTokenRequest sendTokenRequest)
 
 Builds a transaction that sends an NTP1 Token
 
@@ -590,12 +590,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new TestnetNTP1Api();
-            var body = new SendTokenRequest(); // SendTokenRequest | Object representing the token to be sent
+            var sendTokenRequest = new SendTokenRequest(); // SendTokenRequest | Object representing the token to be sent
 
             try
             {
                 // Builds a transaction that sends an NTP1 Token
-                SendTokenResponse result = apiInstance.TestnetSendToken(body);
+                SendTokenResponse result = apiInstance.TestnetSendToken(sendTokenRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -611,7 +611,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**SendTokenRequest**](SendTokenRequest.md)| Object representing the token to be sent | 
+ **sendTokenRequest** | [**SendTokenRequest**](SendTokenRequest.md)| Object representing the token to be sent | 
 
 ### Return type
 

@@ -815,7 +815,7 @@ No authorization required
 
 <a name="testnetsendtx"></a>
 # **TestnetSendTx**
-> BroadcastTxResponse TestnetSendTx (SendTxRequest body)
+> BroadcastTxResponse TestnetSendTx (SendTxRequest sendTxRequest)
 
 Broadcasts a signed raw transaction to the network (not NTP1 specific)
 
@@ -836,12 +836,12 @@ namespace Example
         public void main()
         {
             var apiInstance = new TestnetInsightApi();
-            var body = new SendTxRequest(); // SendTxRequest | Object representing a transaction to broadcast
+            var sendTxRequest = new SendTxRequest(); // SendTxRequest | Object representing a transaction to broadcast
 
             try
             {
                 // Broadcasts a signed raw transaction to the network (not NTP1 specific)
-                BroadcastTxResponse result = apiInstance.TestnetSendTx(body);
+                BroadcastTxResponse result = apiInstance.TestnetSendTx(sendTxRequest);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -857,7 +857,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**SendTxRequest**](SendTxRequest.md)| Object representing a transaction to broadcast | 
+ **sendTxRequest** | [**SendTxRequest**](SendTxRequest.md)| Object representing a transaction to broadcast | 
 
 ### Return type
 

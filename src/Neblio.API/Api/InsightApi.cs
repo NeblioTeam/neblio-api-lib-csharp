@@ -306,9 +306,9 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="sendTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>BroadcastTxResponse</returns>
-        BroadcastTxResponse SendTx (SendTxRequest body);
+        BroadcastTxResponse SendTx (SendTxRequest sendTxRequest);
 
         /// <summary>
         /// Broadcasts a signed raw transaction to the network (not NTP1 specific)
@@ -317,9 +317,9 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="sendTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>ApiResponse of BroadcastTxResponse</returns>
-        ApiResponse<BroadcastTxResponse> SendTxWithHttpInfo (SendTxRequest body);
+        ApiResponse<BroadcastTxResponse> SendTxWithHttpInfo (SendTxRequest sendTxRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -604,9 +604,9 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="sendTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>Task of BroadcastTxResponse</returns>
-        System.Threading.Tasks.Task<BroadcastTxResponse> SendTxAsync (SendTxRequest body);
+        System.Threading.Tasks.Task<BroadcastTxResponse> SendTxAsync (SendTxRequest sendTxRequest);
 
         /// <summary>
         /// Broadcasts a signed raw transaction to the network (not NTP1 specific)
@@ -615,9 +615,9 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="sendTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>Task of ApiResponse (BroadcastTxResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BroadcastTxResponse>> SendTxAsyncWithHttpInfo (SendTxRequest body);
+        System.Threading.Tasks.Task<ApiResponse<BroadcastTxResponse>> SendTxAsyncWithHttpInfo (SendTxRequest sendTxRequest);
         #endregion Asynchronous Operations
     }
 
@@ -2450,11 +2450,11 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network (not NTP1 specific) Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="sendTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>BroadcastTxResponse</returns>
-        public BroadcastTxResponse SendTx (SendTxRequest body)
+        public BroadcastTxResponse SendTx (SendTxRequest sendTxRequest)
         {
-             ApiResponse<BroadcastTxResponse> localVarResponse = SendTxWithHttpInfo(body);
+             ApiResponse<BroadcastTxResponse> localVarResponse = SendTxWithHttpInfo(sendTxRequest);
              return localVarResponse.Data;
         }
 
@@ -2462,13 +2462,13 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network (not NTP1 specific) Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="sendTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>ApiResponse of BroadcastTxResponse</returns>
-        public ApiResponse< BroadcastTxResponse > SendTxWithHttpInfo (SendTxRequest body)
+        public ApiResponse< BroadcastTxResponse > SendTxWithHttpInfo (SendTxRequest sendTxRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling InsightApi->SendTx");
+            // verify the required parameter 'sendTxRequest' is set
+            if (sendTxRequest == null)
+                throw new ApiException(400, "Missing required parameter 'sendTxRequest' when calling InsightApi->SendTx");
 
             var localVarPath = "/ins/tx/send";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2492,13 +2492,13 @@ namespace Neblio.API.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (sendTxRequest != null && sendTxRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sendTxRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = sendTxRequest; // byte array
             }
 
 
@@ -2524,11 +2524,11 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network (not NTP1 specific) Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="sendTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>Task of BroadcastTxResponse</returns>
-        public async System.Threading.Tasks.Task<BroadcastTxResponse> SendTxAsync (SendTxRequest body)
+        public async System.Threading.Tasks.Task<BroadcastTxResponse> SendTxAsync (SendTxRequest sendTxRequest)
         {
-             ApiResponse<BroadcastTxResponse> localVarResponse = await SendTxAsyncWithHttpInfo(body);
+             ApiResponse<BroadcastTxResponse> localVarResponse = await SendTxAsyncWithHttpInfo(sendTxRequest);
              return localVarResponse.Data;
 
         }
@@ -2537,13 +2537,13 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network (not NTP1 specific) Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="sendTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>Task of ApiResponse (BroadcastTxResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BroadcastTxResponse>> SendTxAsyncWithHttpInfo (SendTxRequest body)
+        public async System.Threading.Tasks.Task<ApiResponse<BroadcastTxResponse>> SendTxAsyncWithHttpInfo (SendTxRequest sendTxRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling InsightApi->SendTx");
+            // verify the required parameter 'sendTxRequest' is set
+            if (sendTxRequest == null)
+                throw new ApiException(400, "Missing required parameter 'sendTxRequest' when calling InsightApi->SendTx");
 
             var localVarPath = "/ins/tx/send";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2567,13 +2567,13 @@ namespace Neblio.API.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (sendTxRequest != null && sendTxRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sendTxRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = sendTxRequest; // byte array
             }
 
 

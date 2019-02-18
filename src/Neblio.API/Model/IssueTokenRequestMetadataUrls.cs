@@ -33,38 +33,24 @@ namespace Neblio.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IssueTokenRequestMetadataUrls" /> class.
         /// </summary>
-        /// <param name="dataHash">Hash of data at the URL, used for verification.</param>
         /// <param name="name">Name of the URL.</param>
-        /// <param name="mimeType">mimeType of URL content.</param>
         /// <param name="url">Actual URL.</param>
-        public IssueTokenRequestMetadataUrls(string dataHash = default(string), string name = default(string), string mimeType = default(string), string url = default(string))
+        /// <param name="mimeType">mimeType of URL content.</param>
+        /// <param name="dataHash">Hash of data at the URL, used for verification.</param>
+        public IssueTokenRequestMetadataUrls(string name = default(string), string url = default(string), string mimeType = default(string), string dataHash = default(string))
         {
-            this.DataHash = dataHash;
             this.Name = name;
-            this.MimeType = mimeType;
             this.Url = url;
+            this.MimeType = mimeType;
+            this.DataHash = dataHash;
         }
         
-        /// <summary>
-        /// Hash of data at the URL, used for verification
-        /// </summary>
-        /// <value>Hash of data at the URL, used for verification</value>
-        [DataMember(Name="dataHash", EmitDefaultValue=false)]
-        public string DataHash { get; set; }
-
         /// <summary>
         /// Name of the URL
         /// </summary>
         /// <value>Name of the URL</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
-
-        /// <summary>
-        /// mimeType of URL content
-        /// </summary>
-        /// <value>mimeType of URL content</value>
-        [DataMember(Name="mimeType", EmitDefaultValue=false)]
-        public string MimeType { get; set; }
 
         /// <summary>
         /// Actual URL
@@ -74,6 +60,20 @@ namespace Neblio.API.Model
         public string Url { get; set; }
 
         /// <summary>
+        /// mimeType of URL content
+        /// </summary>
+        /// <value>mimeType of URL content</value>
+        [DataMember(Name="mimeType", EmitDefaultValue=false)]
+        public string MimeType { get; set; }
+
+        /// <summary>
+        /// Hash of data at the URL, used for verification
+        /// </summary>
+        /// <value>Hash of data at the URL, used for verification</value>
+        [DataMember(Name="dataHash", EmitDefaultValue=false)]
+        public string DataHash { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,10 +81,10 @@ namespace Neblio.API.Model
         {
             var sb = new StringBuilder();
             sb.Append("class IssueTokenRequestMetadataUrls {\n");
-            sb.Append("  DataHash: ").Append(DataHash).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  MimeType: ").Append(MimeType).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  MimeType: ").Append(MimeType).Append("\n");
+            sb.Append("  DataHash: ").Append(DataHash).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -120,14 +120,14 @@ namespace Neblio.API.Model
 
             return 
                 (
-                    this.DataHash == input.DataHash ||
-                    (this.DataHash != null &&
-                    this.DataHash.Equals(input.DataHash))
-                ) && 
-                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 ) && 
                 (
                     this.MimeType == input.MimeType ||
@@ -135,9 +135,9 @@ namespace Neblio.API.Model
                     this.MimeType.Equals(input.MimeType))
                 ) && 
                 (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
+                    this.DataHash == input.DataHash ||
+                    (this.DataHash != null &&
+                    this.DataHash.Equals(input.DataHash))
                 );
         }
 
@@ -150,14 +150,14 @@ namespace Neblio.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DataHash != null)
-                    hashCode = hashCode * 59 + this.DataHash.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.MimeType != null)
-                    hashCode = hashCode * 59 + this.MimeType.GetHashCode();
                 if (this.Url != null)
                     hashCode = hashCode * 59 + this.Url.GetHashCode();
+                if (this.MimeType != null)
+                    hashCode = hashCode * 59 + this.MimeType.GetHashCode();
+                if (this.DataHash != null)
+                    hashCode = hashCode * 59 + this.DataHash.GetHashCode();
                 return hashCode;
             }
         }

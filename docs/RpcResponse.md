@@ -1,11 +1,11 @@
-# Neblio.API.Model.SendTokenRequestTo
+# Neblio.API.Model.RpcResponse
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Address** | **string** | Address to transfer tokens to | [optional] 
-**Amount** | **decimal?** | Number of tokens to send | [optional] 
-**TokenId** | **string** | ID of token we are sending | [optional] 
+**Result** | [**Object**](.md) | Object containing the response output. | [optional] 
+**Id** | **string** | Identifier of RCP caller | [optional] 
+**Error** | [**Object**](.md) | Object containing any error information. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

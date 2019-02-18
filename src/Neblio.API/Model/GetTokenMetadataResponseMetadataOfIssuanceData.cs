@@ -33,37 +33,24 @@ namespace Neblio.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetTokenMetadataResponseMetadataOfIssuanceData" /> class.
         /// </summary>
-        /// <param name="userData">userData.</param>
         /// <param name="tokenName">Token symbol.</param>
-        /// <param name="description">Token description.</param>
         /// <param name="issuer">Name of token issuer.</param>
-        public GetTokenMetadataResponseMetadataOfIssuanceData(GetTokenMetadataResponseMetadataOfIssuanceDataUserData userData = default(GetTokenMetadataResponseMetadataOfIssuanceDataUserData), string tokenName = default(string), string description = default(string), string issuer = default(string))
+        /// <param name="description">Token description.</param>
+        /// <param name="userData">userData.</param>
+        public GetTokenMetadataResponseMetadataOfIssuanceData(string tokenName = default(string), string issuer = default(string), string description = default(string), GetTokenMetadataResponseMetadataOfIssuanceDataUserData userData = default(GetTokenMetadataResponseMetadataOfIssuanceDataUserData))
         {
-            this.UserData = userData;
             this.TokenName = tokenName;
-            this.Description = description;
             this.Issuer = issuer;
+            this.Description = description;
+            this.UserData = userData;
         }
         
-        /// <summary>
-        /// Gets or Sets UserData
-        /// </summary>
-        [DataMember(Name="userData", EmitDefaultValue=false)]
-        public GetTokenMetadataResponseMetadataOfIssuanceDataUserData UserData { get; set; }
-
         /// <summary>
         /// Token symbol
         /// </summary>
         /// <value>Token symbol</value>
         [DataMember(Name="tokenName", EmitDefaultValue=false)]
         public string TokenName { get; set; }
-
-        /// <summary>
-        /// Token description
-        /// </summary>
-        /// <value>Token description</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
 
         /// <summary>
         /// Name of token issuer
@@ -73,6 +60,19 @@ namespace Neblio.API.Model
         public string Issuer { get; set; }
 
         /// <summary>
+        /// Token description
+        /// </summary>
+        /// <value>Token description</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UserData
+        /// </summary>
+        [DataMember(Name="userData", EmitDefaultValue=false)]
+        public GetTokenMetadataResponseMetadataOfIssuanceDataUserData UserData { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -80,10 +80,10 @@ namespace Neblio.API.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GetTokenMetadataResponseMetadataOfIssuanceData {\n");
-            sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("  TokenName: ").Append(TokenName).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Issuer: ").Append(Issuer).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,14 +119,14 @@ namespace Neblio.API.Model
 
             return 
                 (
-                    this.UserData == input.UserData ||
-                    (this.UserData != null &&
-                    this.UserData.Equals(input.UserData))
-                ) && 
-                (
                     this.TokenName == input.TokenName ||
                     (this.TokenName != null &&
                     this.TokenName.Equals(input.TokenName))
+                ) && 
+                (
+                    this.Issuer == input.Issuer ||
+                    (this.Issuer != null &&
+                    this.Issuer.Equals(input.Issuer))
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -134,9 +134,9 @@ namespace Neblio.API.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.Issuer == input.Issuer ||
-                    (this.Issuer != null &&
-                    this.Issuer.Equals(input.Issuer))
+                    this.UserData == input.UserData ||
+                    (this.UserData != null &&
+                    this.UserData.Equals(input.UserData))
                 );
         }
 
@@ -149,14 +149,14 @@ namespace Neblio.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.UserData != null)
-                    hashCode = hashCode * 59 + this.UserData.GetHashCode();
                 if (this.TokenName != null)
                     hashCode = hashCode * 59 + this.TokenName.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Issuer != null)
                     hashCode = hashCode * 59 + this.Issuer.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.UserData != null)
+                    hashCode = hashCode * 59 + this.UserData.GetHashCode();
                 return hashCode;
             }
         }

@@ -33,36 +33,22 @@ namespace Neblio.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetTransactionInfoResponseTokens" /> class.
         /// </summary>
-        /// <param name="amount">Number of tokens.</param>
-        /// <param name="aggregationPolicy">Whether the tokens are aggregatable.</param>
         /// <param name="tokenId">ID of the token.</param>
-        /// <param name="lockStatus">Whether issuance of more tokens is locked.</param>
+        /// <param name="amount">Number of tokens.</param>
         /// <param name="issueTxid">TXID the token was issued in.</param>
         /// <param name="divisibility">Decimal places the token is divisible to.</param>
-        public GetTransactionInfoResponseTokens(decimal? amount = default(decimal?), string aggregationPolicy = default(string), string tokenId = default(string), bool? lockStatus = default(bool?), string issueTxid = default(string), decimal? divisibility = default(decimal?))
+        /// <param name="lockStatus">Whether issuance of more tokens is locked.</param>
+        /// <param name="aggregationPolicy">Whether the tokens are aggregatable.</param>
+        public GetTransactionInfoResponseTokens(string tokenId = default(string), decimal? amount = default(decimal?), string issueTxid = default(string), decimal? divisibility = default(decimal?), bool? lockStatus = default(bool?), string aggregationPolicy = default(string))
         {
-            this.Amount = amount;
-            this.AggregationPolicy = aggregationPolicy;
             this.TokenId = tokenId;
-            this.LockStatus = lockStatus;
+            this.Amount = amount;
             this.IssueTxid = issueTxid;
             this.Divisibility = divisibility;
+            this.LockStatus = lockStatus;
+            this.AggregationPolicy = aggregationPolicy;
         }
         
-        /// <summary>
-        /// Number of tokens
-        /// </summary>
-        /// <value>Number of tokens</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
-        public decimal? Amount { get; set; }
-
-        /// <summary>
-        /// Whether the tokens are aggregatable
-        /// </summary>
-        /// <value>Whether the tokens are aggregatable</value>
-        [DataMember(Name="aggregationPolicy", EmitDefaultValue=false)]
-        public string AggregationPolicy { get; set; }
-
         /// <summary>
         /// ID of the token
         /// </summary>
@@ -71,11 +57,11 @@ namespace Neblio.API.Model
         public string TokenId { get; set; }
 
         /// <summary>
-        /// Whether issuance of more tokens is locked
+        /// Number of tokens
         /// </summary>
-        /// <value>Whether issuance of more tokens is locked</value>
-        [DataMember(Name="lockStatus", EmitDefaultValue=false)]
-        public bool? LockStatus { get; set; }
+        /// <value>Number of tokens</value>
+        [DataMember(Name="amount", EmitDefaultValue=false)]
+        public decimal? Amount { get; set; }
 
         /// <summary>
         /// TXID the token was issued in
@@ -92,6 +78,20 @@ namespace Neblio.API.Model
         public decimal? Divisibility { get; set; }
 
         /// <summary>
+        /// Whether issuance of more tokens is locked
+        /// </summary>
+        /// <value>Whether issuance of more tokens is locked</value>
+        [DataMember(Name="lockStatus", EmitDefaultValue=false)]
+        public bool? LockStatus { get; set; }
+
+        /// <summary>
+        /// Whether the tokens are aggregatable
+        /// </summary>
+        /// <value>Whether the tokens are aggregatable</value>
+        [DataMember(Name="aggregationPolicy", EmitDefaultValue=false)]
+        public string AggregationPolicy { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -99,12 +99,12 @@ namespace Neblio.API.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GetTransactionInfoResponseTokens {\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  AggregationPolicy: ").Append(AggregationPolicy).Append("\n");
             sb.Append("  TokenId: ").Append(TokenId).Append("\n");
-            sb.Append("  LockStatus: ").Append(LockStatus).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  IssueTxid: ").Append(IssueTxid).Append("\n");
             sb.Append("  Divisibility: ").Append(Divisibility).Append("\n");
+            sb.Append("  LockStatus: ").Append(LockStatus).Append("\n");
+            sb.Append("  AggregationPolicy: ").Append(AggregationPolicy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,24 +140,14 @@ namespace Neblio.API.Model
 
             return 
                 (
-                    this.Amount == input.Amount ||
-                    (this.Amount != null &&
-                    this.Amount.Equals(input.Amount))
-                ) && 
-                (
-                    this.AggregationPolicy == input.AggregationPolicy ||
-                    (this.AggregationPolicy != null &&
-                    this.AggregationPolicy.Equals(input.AggregationPolicy))
-                ) && 
-                (
                     this.TokenId == input.TokenId ||
                     (this.TokenId != null &&
                     this.TokenId.Equals(input.TokenId))
                 ) && 
                 (
-                    this.LockStatus == input.LockStatus ||
-                    (this.LockStatus != null &&
-                    this.LockStatus.Equals(input.LockStatus))
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 ) && 
                 (
                     this.IssueTxid == input.IssueTxid ||
@@ -168,6 +158,16 @@ namespace Neblio.API.Model
                     this.Divisibility == input.Divisibility ||
                     (this.Divisibility != null &&
                     this.Divisibility.Equals(input.Divisibility))
+                ) && 
+                (
+                    this.LockStatus == input.LockStatus ||
+                    (this.LockStatus != null &&
+                    this.LockStatus.Equals(input.LockStatus))
+                ) && 
+                (
+                    this.AggregationPolicy == input.AggregationPolicy ||
+                    (this.AggregationPolicy != null &&
+                    this.AggregationPolicy.Equals(input.AggregationPolicy))
                 );
         }
 
@@ -180,18 +180,18 @@ namespace Neblio.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Amount != null)
-                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
-                if (this.AggregationPolicy != null)
-                    hashCode = hashCode * 59 + this.AggregationPolicy.GetHashCode();
                 if (this.TokenId != null)
                     hashCode = hashCode * 59 + this.TokenId.GetHashCode();
-                if (this.LockStatus != null)
-                    hashCode = hashCode * 59 + this.LockStatus.GetHashCode();
+                if (this.Amount != null)
+                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.IssueTxid != null)
                     hashCode = hashCode * 59 + this.IssueTxid.GetHashCode();
                 if (this.Divisibility != null)
                     hashCode = hashCode * 59 + this.Divisibility.GetHashCode();
+                if (this.LockStatus != null)
+                    hashCode = hashCode * 59 + this.LockStatus.GetHashCode();
+                if (this.AggregationPolicy != null)
+                    hashCode = hashCode * 59 + this.AggregationPolicy.GetHashCode();
                 return hashCode;
             }
         }

@@ -31,9 +31,9 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="broadcastTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>BroadcastTxResponse</returns>
-        BroadcastTxResponse BroadcastTx (BroadcastTxRequest body);
+        BroadcastTxResponse BroadcastTx (BroadcastTxRequest broadcastTxRequest);
 
         /// <summary>
         /// Broadcasts a signed raw transaction to the network
@@ -42,9 +42,9 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="broadcastTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>ApiResponse of BroadcastTxResponse</returns>
-        ApiResponse<BroadcastTxResponse> BroadcastTxWithHttpInfo (BroadcastTxRequest body);
+        ApiResponse<BroadcastTxResponse> BroadcastTxWithHttpInfo (BroadcastTxRequest broadcastTxRequest);
         /// <summary>
         /// Builds a transaction that burns an NTP1 Token
         /// </summary>
@@ -52,9 +52,9 @@ namespace Neblio.API.Api
         /// Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be burned</param>
+        /// <param name="burnTokenRequest">Object representing the token to be burned</param>
         /// <returns>BurnTokenResponse</returns>
-        BurnTokenResponse BurnToken (BurnTokenRequest body);
+        BurnTokenResponse BurnToken (BurnTokenRequest burnTokenRequest);
 
         /// <summary>
         /// Builds a transaction that burns an NTP1 Token
@@ -63,9 +63,9 @@ namespace Neblio.API.Api
         /// Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be burned</param>
+        /// <param name="burnTokenRequest">Object representing the token to be burned</param>
         /// <returns>ApiResponse of BurnTokenResponse</returns>
-        ApiResponse<BurnTokenResponse> BurnTokenWithHttpInfo (BurnTokenRequest body);
+        ApiResponse<BurnTokenResponse> BurnTokenWithHttpInfo (BurnTokenRequest burnTokenRequest);
         /// <summary>
         /// Information On a Neblio Address
         /// </summary>
@@ -201,9 +201,9 @@ namespace Neblio.API.Api
         /// Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be created</param>
+        /// <param name="issueTokenRequest">Object representing the token to be created</param>
         /// <returns>IssueTokenResponse</returns>
-        IssueTokenResponse IssueToken (IssueTokenRequest body);
+        IssueTokenResponse IssueToken (IssueTokenRequest issueTokenRequest);
 
         /// <summary>
         /// Builds a transaction that issues a new NTP1 Token
@@ -212,9 +212,9 @@ namespace Neblio.API.Api
         /// Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be created</param>
+        /// <param name="issueTokenRequest">Object representing the token to be created</param>
         /// <returns>ApiResponse of IssueTokenResponse</returns>
-        ApiResponse<IssueTokenResponse> IssueTokenWithHttpInfo (IssueTokenRequest body);
+        ApiResponse<IssueTokenResponse> IssueTokenWithHttpInfo (IssueTokenRequest issueTokenRequest);
         /// <summary>
         /// Builds a transaction that sends an NTP1 Token
         /// </summary>
@@ -222,9 +222,9 @@ namespace Neblio.API.Api
         /// Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be sent</param>
+        /// <param name="sendTokenRequest">Object representing the token to be sent</param>
         /// <returns>SendTokenResponse</returns>
-        SendTokenResponse SendToken (SendTokenRequest body);
+        SendTokenResponse SendToken (SendTokenRequest sendTokenRequest);
 
         /// <summary>
         /// Builds a transaction that sends an NTP1 Token
@@ -233,9 +233,9 @@ namespace Neblio.API.Api
         /// Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be sent</param>
+        /// <param name="sendTokenRequest">Object representing the token to be sent</param>
         /// <returns>ApiResponse of SendTokenResponse</returns>
-        ApiResponse<SendTokenResponse> SendTokenWithHttpInfo (SendTokenRequest body);
+        ApiResponse<SendTokenResponse> SendTokenWithHttpInfo (SendTokenRequest sendTokenRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -245,9 +245,9 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="broadcastTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>Task of BroadcastTxResponse</returns>
-        System.Threading.Tasks.Task<BroadcastTxResponse> BroadcastTxAsync (BroadcastTxRequest body);
+        System.Threading.Tasks.Task<BroadcastTxResponse> BroadcastTxAsync (BroadcastTxRequest broadcastTxRequest);
 
         /// <summary>
         /// Broadcasts a signed raw transaction to the network
@@ -256,9 +256,9 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="broadcastTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>Task of ApiResponse (BroadcastTxResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BroadcastTxResponse>> BroadcastTxAsyncWithHttpInfo (BroadcastTxRequest body);
+        System.Threading.Tasks.Task<ApiResponse<BroadcastTxResponse>> BroadcastTxAsyncWithHttpInfo (BroadcastTxRequest broadcastTxRequest);
         /// <summary>
         /// Builds a transaction that burns an NTP1 Token
         /// </summary>
@@ -266,9 +266,9 @@ namespace Neblio.API.Api
         /// Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be burned</param>
+        /// <param name="burnTokenRequest">Object representing the token to be burned</param>
         /// <returns>Task of BurnTokenResponse</returns>
-        System.Threading.Tasks.Task<BurnTokenResponse> BurnTokenAsync (BurnTokenRequest body);
+        System.Threading.Tasks.Task<BurnTokenResponse> BurnTokenAsync (BurnTokenRequest burnTokenRequest);
 
         /// <summary>
         /// Builds a transaction that burns an NTP1 Token
@@ -277,9 +277,9 @@ namespace Neblio.API.Api
         /// Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be burned</param>
+        /// <param name="burnTokenRequest">Object representing the token to be burned</param>
         /// <returns>Task of ApiResponse (BurnTokenResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BurnTokenResponse>> BurnTokenAsyncWithHttpInfo (BurnTokenRequest body);
+        System.Threading.Tasks.Task<ApiResponse<BurnTokenResponse>> BurnTokenAsyncWithHttpInfo (BurnTokenRequest burnTokenRequest);
         /// <summary>
         /// Information On a Neblio Address
         /// </summary>
@@ -415,9 +415,9 @@ namespace Neblio.API.Api
         /// Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be created</param>
+        /// <param name="issueTokenRequest">Object representing the token to be created</param>
         /// <returns>Task of IssueTokenResponse</returns>
-        System.Threading.Tasks.Task<IssueTokenResponse> IssueTokenAsync (IssueTokenRequest body);
+        System.Threading.Tasks.Task<IssueTokenResponse> IssueTokenAsync (IssueTokenRequest issueTokenRequest);
 
         /// <summary>
         /// Builds a transaction that issues a new NTP1 Token
@@ -426,9 +426,9 @@ namespace Neblio.API.Api
         /// Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be created</param>
+        /// <param name="issueTokenRequest">Object representing the token to be created</param>
         /// <returns>Task of ApiResponse (IssueTokenResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IssueTokenResponse>> IssueTokenAsyncWithHttpInfo (IssueTokenRequest body);
+        System.Threading.Tasks.Task<ApiResponse<IssueTokenResponse>> IssueTokenAsyncWithHttpInfo (IssueTokenRequest issueTokenRequest);
         /// <summary>
         /// Builds a transaction that sends an NTP1 Token
         /// </summary>
@@ -436,9 +436,9 @@ namespace Neblio.API.Api
         /// Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be sent</param>
+        /// <param name="sendTokenRequest">Object representing the token to be sent</param>
         /// <returns>Task of SendTokenResponse</returns>
-        System.Threading.Tasks.Task<SendTokenResponse> SendTokenAsync (SendTokenRequest body);
+        System.Threading.Tasks.Task<SendTokenResponse> SendTokenAsync (SendTokenRequest sendTokenRequest);
 
         /// <summary>
         /// Builds a transaction that sends an NTP1 Token
@@ -447,9 +447,9 @@ namespace Neblio.API.Api
         /// Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain. 
         /// </remarks>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be sent</param>
+        /// <param name="sendTokenRequest">Object representing the token to be sent</param>
         /// <returns>Task of ApiResponse (SendTokenResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SendTokenResponse>> SendTokenAsyncWithHttpInfo (SendTokenRequest body);
+        System.Threading.Tasks.Task<ApiResponse<SendTokenResponse>> SendTokenAsyncWithHttpInfo (SendTokenRequest sendTokenRequest);
         #endregion Asynchronous Operations
     }
 
@@ -565,11 +565,11 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="broadcastTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>BroadcastTxResponse</returns>
-        public BroadcastTxResponse BroadcastTx (BroadcastTxRequest body)
+        public BroadcastTxResponse BroadcastTx (BroadcastTxRequest broadcastTxRequest)
         {
-             ApiResponse<BroadcastTxResponse> localVarResponse = BroadcastTxWithHttpInfo(body);
+             ApiResponse<BroadcastTxResponse> localVarResponse = BroadcastTxWithHttpInfo(broadcastTxRequest);
              return localVarResponse.Data;
         }
 
@@ -577,13 +577,13 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="broadcastTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>ApiResponse of BroadcastTxResponse</returns>
-        public ApiResponse< BroadcastTxResponse > BroadcastTxWithHttpInfo (BroadcastTxRequest body)
+        public ApiResponse< BroadcastTxResponse > BroadcastTxWithHttpInfo (BroadcastTxRequest broadcastTxRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling NTP1Api->BroadcastTx");
+            // verify the required parameter 'broadcastTxRequest' is set
+            if (broadcastTxRequest == null)
+                throw new ApiException(400, "Missing required parameter 'broadcastTxRequest' when calling NTP1Api->BroadcastTx");
 
             var localVarPath = "/ntp1/broadcast";
             var localVarPathParams = new Dictionary<String, String>();
@@ -607,13 +607,13 @@ namespace Neblio.API.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (broadcastTxRequest != null && broadcastTxRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(broadcastTxRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = broadcastTxRequest; // byte array
             }
 
 
@@ -639,11 +639,11 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="broadcastTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>Task of BroadcastTxResponse</returns>
-        public async System.Threading.Tasks.Task<BroadcastTxResponse> BroadcastTxAsync (BroadcastTxRequest body)
+        public async System.Threading.Tasks.Task<BroadcastTxResponse> BroadcastTxAsync (BroadcastTxRequest broadcastTxRequest)
         {
-             ApiResponse<BroadcastTxResponse> localVarResponse = await BroadcastTxAsyncWithHttpInfo(body);
+             ApiResponse<BroadcastTxResponse> localVarResponse = await BroadcastTxAsyncWithHttpInfo(broadcastTxRequest);
              return localVarResponse.Data;
 
         }
@@ -652,13 +652,13 @@ namespace Neblio.API.Api
         /// Broadcasts a signed raw transaction to the network Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing a transaction to broadcast</param>
+        /// <param name="broadcastTxRequest">Object representing a transaction to broadcast</param>
         /// <returns>Task of ApiResponse (BroadcastTxResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BroadcastTxResponse>> BroadcastTxAsyncWithHttpInfo (BroadcastTxRequest body)
+        public async System.Threading.Tasks.Task<ApiResponse<BroadcastTxResponse>> BroadcastTxAsyncWithHttpInfo (BroadcastTxRequest broadcastTxRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling NTP1Api->BroadcastTx");
+            // verify the required parameter 'broadcastTxRequest' is set
+            if (broadcastTxRequest == null)
+                throw new ApiException(400, "Missing required parameter 'broadcastTxRequest' when calling NTP1Api->BroadcastTx");
 
             var localVarPath = "/ntp1/broadcast";
             var localVarPathParams = new Dictionary<String, String>();
@@ -682,13 +682,13 @@ namespace Neblio.API.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (broadcastTxRequest != null && broadcastTxRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(broadcastTxRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = broadcastTxRequest; // byte array
             }
 
 
@@ -714,11 +714,11 @@ namespace Neblio.API.Api
         /// Builds a transaction that burns an NTP1 Token Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be burned</param>
+        /// <param name="burnTokenRequest">Object representing the token to be burned</param>
         /// <returns>BurnTokenResponse</returns>
-        public BurnTokenResponse BurnToken (BurnTokenRequest body)
+        public BurnTokenResponse BurnToken (BurnTokenRequest burnTokenRequest)
         {
-             ApiResponse<BurnTokenResponse> localVarResponse = BurnTokenWithHttpInfo(body);
+             ApiResponse<BurnTokenResponse> localVarResponse = BurnTokenWithHttpInfo(burnTokenRequest);
              return localVarResponse.Data;
         }
 
@@ -726,13 +726,13 @@ namespace Neblio.API.Api
         /// Builds a transaction that burns an NTP1 Token Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be burned</param>
+        /// <param name="burnTokenRequest">Object representing the token to be burned</param>
         /// <returns>ApiResponse of BurnTokenResponse</returns>
-        public ApiResponse< BurnTokenResponse > BurnTokenWithHttpInfo (BurnTokenRequest body)
+        public ApiResponse< BurnTokenResponse > BurnTokenWithHttpInfo (BurnTokenRequest burnTokenRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling NTP1Api->BurnToken");
+            // verify the required parameter 'burnTokenRequest' is set
+            if (burnTokenRequest == null)
+                throw new ApiException(400, "Missing required parameter 'burnTokenRequest' when calling NTP1Api->BurnToken");
 
             var localVarPath = "/ntp1/burntoken";
             var localVarPathParams = new Dictionary<String, String>();
@@ -756,13 +756,13 @@ namespace Neblio.API.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (burnTokenRequest != null && burnTokenRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(burnTokenRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = burnTokenRequest; // byte array
             }
 
 
@@ -788,11 +788,11 @@ namespace Neblio.API.Api
         /// Builds a transaction that burns an NTP1 Token Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be burned</param>
+        /// <param name="burnTokenRequest">Object representing the token to be burned</param>
         /// <returns>Task of BurnTokenResponse</returns>
-        public async System.Threading.Tasks.Task<BurnTokenResponse> BurnTokenAsync (BurnTokenRequest body)
+        public async System.Threading.Tasks.Task<BurnTokenResponse> BurnTokenAsync (BurnTokenRequest burnTokenRequest)
         {
-             ApiResponse<BurnTokenResponse> localVarResponse = await BurnTokenAsyncWithHttpInfo(body);
+             ApiResponse<BurnTokenResponse> localVarResponse = await BurnTokenAsyncWithHttpInfo(burnTokenRequest);
              return localVarResponse.Data;
 
         }
@@ -801,13 +801,13 @@ namespace Neblio.API.Api
         /// Builds a transaction that burns an NTP1 Token Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be burned</param>
+        /// <param name="burnTokenRequest">Object representing the token to be burned</param>
         /// <returns>Task of ApiResponse (BurnTokenResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<BurnTokenResponse>> BurnTokenAsyncWithHttpInfo (BurnTokenRequest body)
+        public async System.Threading.Tasks.Task<ApiResponse<BurnTokenResponse>> BurnTokenAsyncWithHttpInfo (BurnTokenRequest burnTokenRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling NTP1Api->BurnToken");
+            // verify the required parameter 'burnTokenRequest' is set
+            if (burnTokenRequest == null)
+                throw new ApiException(400, "Missing required parameter 'burnTokenRequest' when calling NTP1Api->BurnToken");
 
             var localVarPath = "/ntp1/burntoken";
             var localVarPathParams = new Dictionary<String, String>();
@@ -831,13 +831,13 @@ namespace Neblio.API.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (burnTokenRequest != null && burnTokenRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(burnTokenRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = burnTokenRequest; // byte array
             }
 
 
@@ -1673,11 +1673,11 @@ namespace Neblio.API.Api
         /// Builds a transaction that issues a new NTP1 Token Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be created</param>
+        /// <param name="issueTokenRequest">Object representing the token to be created</param>
         /// <returns>IssueTokenResponse</returns>
-        public IssueTokenResponse IssueToken (IssueTokenRequest body)
+        public IssueTokenResponse IssueToken (IssueTokenRequest issueTokenRequest)
         {
-             ApiResponse<IssueTokenResponse> localVarResponse = IssueTokenWithHttpInfo(body);
+             ApiResponse<IssueTokenResponse> localVarResponse = IssueTokenWithHttpInfo(issueTokenRequest);
              return localVarResponse.Data;
         }
 
@@ -1685,13 +1685,13 @@ namespace Neblio.API.Api
         /// Builds a transaction that issues a new NTP1 Token Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be created</param>
+        /// <param name="issueTokenRequest">Object representing the token to be created</param>
         /// <returns>ApiResponse of IssueTokenResponse</returns>
-        public ApiResponse< IssueTokenResponse > IssueTokenWithHttpInfo (IssueTokenRequest body)
+        public ApiResponse< IssueTokenResponse > IssueTokenWithHttpInfo (IssueTokenRequest issueTokenRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling NTP1Api->IssueToken");
+            // verify the required parameter 'issueTokenRequest' is set
+            if (issueTokenRequest == null)
+                throw new ApiException(400, "Missing required parameter 'issueTokenRequest' when calling NTP1Api->IssueToken");
 
             var localVarPath = "/ntp1/issue";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1715,13 +1715,13 @@ namespace Neblio.API.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (issueTokenRequest != null && issueTokenRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(issueTokenRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = issueTokenRequest; // byte array
             }
 
 
@@ -1747,11 +1747,11 @@ namespace Neblio.API.Api
         /// Builds a transaction that issues a new NTP1 Token Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be created</param>
+        /// <param name="issueTokenRequest">Object representing the token to be created</param>
         /// <returns>Task of IssueTokenResponse</returns>
-        public async System.Threading.Tasks.Task<IssueTokenResponse> IssueTokenAsync (IssueTokenRequest body)
+        public async System.Threading.Tasks.Task<IssueTokenResponse> IssueTokenAsync (IssueTokenRequest issueTokenRequest)
         {
-             ApiResponse<IssueTokenResponse> localVarResponse = await IssueTokenAsyncWithHttpInfo(body);
+             ApiResponse<IssueTokenResponse> localVarResponse = await IssueTokenAsyncWithHttpInfo(issueTokenRequest);
              return localVarResponse.Data;
 
         }
@@ -1760,13 +1760,13 @@ namespace Neblio.API.Api
         /// Builds a transaction that issues a new NTP1 Token Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be created</param>
+        /// <param name="issueTokenRequest">Object representing the token to be created</param>
         /// <returns>Task of ApiResponse (IssueTokenResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<IssueTokenResponse>> IssueTokenAsyncWithHttpInfo (IssueTokenRequest body)
+        public async System.Threading.Tasks.Task<ApiResponse<IssueTokenResponse>> IssueTokenAsyncWithHttpInfo (IssueTokenRequest issueTokenRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling NTP1Api->IssueToken");
+            // verify the required parameter 'issueTokenRequest' is set
+            if (issueTokenRequest == null)
+                throw new ApiException(400, "Missing required parameter 'issueTokenRequest' when calling NTP1Api->IssueToken");
 
             var localVarPath = "/ntp1/issue";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1790,13 +1790,13 @@ namespace Neblio.API.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (issueTokenRequest != null && issueTokenRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(issueTokenRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = issueTokenRequest; // byte array
             }
 
 
@@ -1822,11 +1822,11 @@ namespace Neblio.API.Api
         /// Builds a transaction that sends an NTP1 Token Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be sent</param>
+        /// <param name="sendTokenRequest">Object representing the token to be sent</param>
         /// <returns>SendTokenResponse</returns>
-        public SendTokenResponse SendToken (SendTokenRequest body)
+        public SendTokenResponse SendToken (SendTokenRequest sendTokenRequest)
         {
-             ApiResponse<SendTokenResponse> localVarResponse = SendTokenWithHttpInfo(body);
+             ApiResponse<SendTokenResponse> localVarResponse = SendTokenWithHttpInfo(sendTokenRequest);
              return localVarResponse.Data;
         }
 
@@ -1834,13 +1834,13 @@ namespace Neblio.API.Api
         /// Builds a transaction that sends an NTP1 Token Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be sent</param>
+        /// <param name="sendTokenRequest">Object representing the token to be sent</param>
         /// <returns>ApiResponse of SendTokenResponse</returns>
-        public ApiResponse< SendTokenResponse > SendTokenWithHttpInfo (SendTokenRequest body)
+        public ApiResponse< SendTokenResponse > SendTokenWithHttpInfo (SendTokenRequest sendTokenRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling NTP1Api->SendToken");
+            // verify the required parameter 'sendTokenRequest' is set
+            if (sendTokenRequest == null)
+                throw new ApiException(400, "Missing required parameter 'sendTokenRequest' when calling NTP1Api->SendToken");
 
             var localVarPath = "/ntp1/sendtoken";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1864,13 +1864,13 @@ namespace Neblio.API.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (sendTokenRequest != null && sendTokenRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sendTokenRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = sendTokenRequest; // byte array
             }
 
 
@@ -1896,11 +1896,11 @@ namespace Neblio.API.Api
         /// Builds a transaction that sends an NTP1 Token Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be sent</param>
+        /// <param name="sendTokenRequest">Object representing the token to be sent</param>
         /// <returns>Task of SendTokenResponse</returns>
-        public async System.Threading.Tasks.Task<SendTokenResponse> SendTokenAsync (SendTokenRequest body)
+        public async System.Threading.Tasks.Task<SendTokenResponse> SendTokenAsync (SendTokenRequest sendTokenRequest)
         {
-             ApiResponse<SendTokenResponse> localVarResponse = await SendTokenAsyncWithHttpInfo(body);
+             ApiResponse<SendTokenResponse> localVarResponse = await SendTokenAsyncWithHttpInfo(sendTokenRequest);
              return localVarResponse.Data;
 
         }
@@ -1909,13 +1909,13 @@ namespace Neblio.API.Api
         /// Builds a transaction that sends an NTP1 Token Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain. 
         /// </summary>
         /// <exception cref="Neblio.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Object representing the token to be sent</param>
+        /// <param name="sendTokenRequest">Object representing the token to be sent</param>
         /// <returns>Task of ApiResponse (SendTokenResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SendTokenResponse>> SendTokenAsyncWithHttpInfo (SendTokenRequest body)
+        public async System.Threading.Tasks.Task<ApiResponse<SendTokenResponse>> SendTokenAsyncWithHttpInfo (SendTokenRequest sendTokenRequest)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling NTP1Api->SendToken");
+            // verify the required parameter 'sendTokenRequest' is set
+            if (sendTokenRequest == null)
+                throw new ApiException(400, "Missing required parameter 'sendTokenRequest' when calling NTP1Api->SendToken");
 
             var localVarPath = "/ntp1/sendtoken";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1939,13 +1939,13 @@ namespace Neblio.API.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (sendTokenRequest != null && sendTokenRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sendTokenRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = sendTokenRequest; // byte array
             }
 
 

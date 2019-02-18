@@ -33,31 +33,65 @@ namespace Neblio.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetTransactionInfoResponseVout" /> class.
         /// </summary>
-        /// <param name="scriptPubKey">scriptPubKey.</param>
-        /// <param name="usedBlockheight">Blockheight this output was used in.</param>
-        /// <param name="usedTxid">TXID this output was used in.</param>
-        /// <param name="tokens">tokens.</param>
-        /// <param name="used">Whether this output has now been used.</param>
         /// <param name="value">Value of the output in NEBL satoshi.</param>
         /// <param name="n">Output index.</param>
+        /// <param name="scriptPubKey">scriptPubKey.</param>
+        /// <param name="tokens">tokens.</param>
+        /// <param name="used">Whether this output has now been used.</param>
         /// <param name="blockheight">Blockheight of this transaction.</param>
-        public GetTransactionInfoResponseVout(GetTransactionInfoResponsePreviousOutput scriptPubKey = default(GetTransactionInfoResponsePreviousOutput), decimal? usedBlockheight = default(decimal?), string usedTxid = default(string), List<GetTransactionInfoResponseTokens> tokens = default(List<GetTransactionInfoResponseTokens>), bool? used = default(bool?), decimal? value = default(decimal?), decimal? n = default(decimal?), decimal? blockheight = default(decimal?))
+        /// <param name="usedBlockheight">Blockheight this output was used in.</param>
+        /// <param name="usedTxid">TXID this output was used in.</param>
+        public GetTransactionInfoResponseVout(decimal? value = default(decimal?), decimal? n = default(decimal?), GetTransactionInfoResponsePreviousOutput scriptPubKey = default(GetTransactionInfoResponsePreviousOutput), List<GetTransactionInfoResponseTokens> tokens = default(List<GetTransactionInfoResponseTokens>), bool? used = default(bool?), decimal? blockheight = default(decimal?), decimal? usedBlockheight = default(decimal?), string usedTxid = default(string))
         {
-            this.ScriptPubKey = scriptPubKey;
-            this.UsedBlockheight = usedBlockheight;
-            this.UsedTxid = usedTxid;
-            this.Tokens = tokens;
-            this.Used = used;
             this.Value = value;
             this.N = n;
+            this.ScriptPubKey = scriptPubKey;
+            this.Tokens = tokens;
+            this.Used = used;
             this.Blockheight = blockheight;
+            this.UsedBlockheight = usedBlockheight;
+            this.UsedTxid = usedTxid;
         }
         
+        /// <summary>
+        /// Value of the output in NEBL satoshi
+        /// </summary>
+        /// <value>Value of the output in NEBL satoshi</value>
+        [DataMember(Name="value", EmitDefaultValue=false)]
+        public decimal? Value { get; set; }
+
+        /// <summary>
+        /// Output index
+        /// </summary>
+        /// <value>Output index</value>
+        [DataMember(Name="n", EmitDefaultValue=false)]
+        public decimal? N { get; set; }
+
         /// <summary>
         /// Gets or Sets ScriptPubKey
         /// </summary>
         [DataMember(Name="scriptPubKey", EmitDefaultValue=false)]
         public GetTransactionInfoResponsePreviousOutput ScriptPubKey { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Tokens
+        /// </summary>
+        [DataMember(Name="tokens", EmitDefaultValue=false)]
+        public List<GetTransactionInfoResponseTokens> Tokens { get; set; }
+
+        /// <summary>
+        /// Whether this output has now been used
+        /// </summary>
+        /// <value>Whether this output has now been used</value>
+        [DataMember(Name="used", EmitDefaultValue=false)]
+        public bool? Used { get; set; }
+
+        /// <summary>
+        /// Blockheight of this transaction
+        /// </summary>
+        /// <value>Blockheight of this transaction</value>
+        [DataMember(Name="blockheight", EmitDefaultValue=false)]
+        public decimal? Blockheight { get; set; }
 
         /// <summary>
         /// Blockheight this output was used in
@@ -74,40 +108,6 @@ namespace Neblio.API.Model
         public string UsedTxid { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tokens
-        /// </summary>
-        [DataMember(Name="tokens", EmitDefaultValue=false)]
-        public List<GetTransactionInfoResponseTokens> Tokens { get; set; }
-
-        /// <summary>
-        /// Whether this output has now been used
-        /// </summary>
-        /// <value>Whether this output has now been used</value>
-        [DataMember(Name="used", EmitDefaultValue=false)]
-        public bool? Used { get; set; }
-
-        /// <summary>
-        /// Value of the output in NEBL satoshi
-        /// </summary>
-        /// <value>Value of the output in NEBL satoshi</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public decimal? Value { get; set; }
-
-        /// <summary>
-        /// Output index
-        /// </summary>
-        /// <value>Output index</value>
-        [DataMember(Name="n", EmitDefaultValue=false)]
-        public decimal? N { get; set; }
-
-        /// <summary>
-        /// Blockheight of this transaction
-        /// </summary>
-        /// <value>Blockheight of this transaction</value>
-        [DataMember(Name="blockheight", EmitDefaultValue=false)]
-        public decimal? Blockheight { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,14 +115,14 @@ namespace Neblio.API.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GetTransactionInfoResponseVout {\n");
-            sb.Append("  ScriptPubKey: ").Append(ScriptPubKey).Append("\n");
-            sb.Append("  UsedBlockheight: ").Append(UsedBlockheight).Append("\n");
-            sb.Append("  UsedTxid: ").Append(UsedTxid).Append("\n");
-            sb.Append("  Tokens: ").Append(Tokens).Append("\n");
-            sb.Append("  Used: ").Append(Used).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  N: ").Append(N).Append("\n");
+            sb.Append("  ScriptPubKey: ").Append(ScriptPubKey).Append("\n");
+            sb.Append("  Tokens: ").Append(Tokens).Append("\n");
+            sb.Append("  Used: ").Append(Used).Append("\n");
             sb.Append("  Blockheight: ").Append(Blockheight).Append("\n");
+            sb.Append("  UsedBlockheight: ").Append(UsedBlockheight).Append("\n");
+            sb.Append("  UsedTxid: ").Append(UsedTxid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -158,19 +158,19 @@ namespace Neblio.API.Model
 
             return 
                 (
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
+                ) && 
+                (
+                    this.N == input.N ||
+                    (this.N != null &&
+                    this.N.Equals(input.N))
+                ) && 
+                (
                     this.ScriptPubKey == input.ScriptPubKey ||
                     (this.ScriptPubKey != null &&
                     this.ScriptPubKey.Equals(input.ScriptPubKey))
-                ) && 
-                (
-                    this.UsedBlockheight == input.UsedBlockheight ||
-                    (this.UsedBlockheight != null &&
-                    this.UsedBlockheight.Equals(input.UsedBlockheight))
-                ) && 
-                (
-                    this.UsedTxid == input.UsedTxid ||
-                    (this.UsedTxid != null &&
-                    this.UsedTxid.Equals(input.UsedTxid))
                 ) && 
                 (
                     this.Tokens == input.Tokens ||
@@ -183,19 +183,19 @@ namespace Neblio.API.Model
                     this.Used.Equals(input.Used))
                 ) && 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
-                ) && 
-                (
-                    this.N == input.N ||
-                    (this.N != null &&
-                    this.N.Equals(input.N))
-                ) && 
-                (
                     this.Blockheight == input.Blockheight ||
                     (this.Blockheight != null &&
                     this.Blockheight.Equals(input.Blockheight))
+                ) && 
+                (
+                    this.UsedBlockheight == input.UsedBlockheight ||
+                    (this.UsedBlockheight != null &&
+                    this.UsedBlockheight.Equals(input.UsedBlockheight))
+                ) && 
+                (
+                    this.UsedTxid == input.UsedTxid ||
+                    (this.UsedTxid != null &&
+                    this.UsedTxid.Equals(input.UsedTxid))
                 );
         }
 
@@ -208,22 +208,22 @@ namespace Neblio.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ScriptPubKey != null)
-                    hashCode = hashCode * 59 + this.ScriptPubKey.GetHashCode();
-                if (this.UsedBlockheight != null)
-                    hashCode = hashCode * 59 + this.UsedBlockheight.GetHashCode();
-                if (this.UsedTxid != null)
-                    hashCode = hashCode * 59 + this.UsedTxid.GetHashCode();
-                if (this.Tokens != null)
-                    hashCode = hashCode * 59 + this.Tokens.GetHashCode();
-                if (this.Used != null)
-                    hashCode = hashCode * 59 + this.Used.GetHashCode();
                 if (this.Value != null)
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.N != null)
                     hashCode = hashCode * 59 + this.N.GetHashCode();
+                if (this.ScriptPubKey != null)
+                    hashCode = hashCode * 59 + this.ScriptPubKey.GetHashCode();
+                if (this.Tokens != null)
+                    hashCode = hashCode * 59 + this.Tokens.GetHashCode();
+                if (this.Used != null)
+                    hashCode = hashCode * 59 + this.Used.GetHashCode();
                 if (this.Blockheight != null)
                     hashCode = hashCode * 59 + this.Blockheight.GetHashCode();
+                if (this.UsedBlockheight != null)
+                    hashCode = hashCode * 59 + this.UsedBlockheight.GetHashCode();
+                if (this.UsedTxid != null)
+                    hashCode = hashCode * 59 + this.UsedTxid.GetHashCode();
                 return hashCode;
             }
         }
