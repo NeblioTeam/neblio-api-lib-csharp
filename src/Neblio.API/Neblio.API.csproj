@@ -12,7 +12,7 @@ OpenAPI spec version: 1.2.1
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A563DFEE-476F-48B7-9988-2DD4E3ABD7DF}</ProjectGuid>
+    <ProjectGuid>{EEB1354C-2DE8-4994-A66C-366C74C07BAA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Neblio.API</RootNamespace>
