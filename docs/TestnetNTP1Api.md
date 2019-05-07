@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**TestnetGetAddressInfo**](TestnetNTP1Api.md#testnetgetaddressinfo) | **GET** /testnet/ntp1/addressinfo/{address} | Information On a Neblio Address
 [**TestnetGetTokenHolders**](TestnetNTP1Api.md#testnetgettokenholders) | **GET** /testnet/ntp1/stakeholders/{tokenid} | Get Addresses Holding a Token
 [**TestnetGetTokenId**](TestnetNTP1Api.md#testnetgettokenid) | **GET** /testnet/ntp1/tokenid/{tokensymbol} | Returns the tokenId representing a token
-[**TestnetGetTokenMetadataOfIssuance**](TestnetNTP1Api.md#testnetgettokenmetadataofissuance) | **GET** /testnet/ntp1/tokenmetadata/{tokenid} | Get Issuance Metadata of Token
+[**TestnetGetTokenMetadata**](TestnetNTP1Api.md#testnetgettokenmetadata) | **GET** /testnet/ntp1/tokenmetadata/{tokenid} | Get Metadata of Token
 [**TestnetGetTokenMetadataOfUtxo**](TestnetNTP1Api.md#testnetgettokenmetadataofutxo) | **GET** /testnet/ntp1/tokenmetadata/{tokenid}/{utxo} | Get UTXO Metadata of Token
 [**TestnetGetTransactionInfo**](TestnetNTP1Api.md#testnetgettransactioninfo) | **GET** /testnet/ntp1/transactioninfo/{txid} | Information On an NTP1 Transaction
 [**TestnetIssueToken**](TestnetNTP1Api.md#testnetissuetoken) | **POST** /testnet/ntp1/issue | Builds a transaction that issues a new NTP1 Token
@@ -321,13 +321,13 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="testnetgettokenmetadataofissuance"></a>
-# **TestnetGetTokenMetadataOfIssuance**
-> GetTokenMetadataResponse TestnetGetTokenMetadataOfIssuance (string tokenid)
+<a name="testnetgettokenmetadata"></a>
+# **TestnetGetTokenMetadata**
+> GetTokenMetadataResponse TestnetGetTokenMetadata (string tokenid)
 
-Get Issuance Metadata of Token
+Get Metadata of Token
 
-Returns the metadata associated with a token at time of issuance. 
+Returns the metadata associated with a token. 
 
 ### Example
 ```csharp
@@ -339,7 +339,7 @@ using Neblio.API.Model;
 
 namespace Example
 {
-    public class TestnetGetTokenMetadataOfIssuanceExample
+    public class TestnetGetTokenMetadataExample
     {
         public void main()
         {
@@ -348,13 +348,13 @@ namespace Example
 
             try
             {
-                // Get Issuance Metadata of Token
-                GetTokenMetadataResponse result = apiInstance.TestnetGetTokenMetadataOfIssuance(tokenid);
+                // Get Metadata of Token
+                GetTokenMetadataResponse result = apiInstance.TestnetGetTokenMetadata(tokenid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling TestnetNTP1Api.TestnetGetTokenMetadataOfIssuance: " + e.Message );
+                Debug.Print("Exception when calling TestnetNTP1Api.TestnetGetTokenMetadata: " + e.Message );
             }
         }
     }

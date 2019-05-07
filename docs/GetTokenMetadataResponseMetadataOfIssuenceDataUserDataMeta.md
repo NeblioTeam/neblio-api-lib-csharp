@@ -1,9 +1,10 @@
-# Neblio.API.Model.GetTokenMetadataResponseMetadataOfIssuanceDataUserData
+# Neblio.API.Model.GetTokenMetadataResponseMetadataOfIssuenceDataUserDataMeta
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Meta** | [**List&lt;GetTokenMetadataResponseMetadataOfIssuanceDataUserDataMeta&gt;**](GetTokenMetadataResponseMetadataOfIssuanceDataUserDataMeta.md) |  | [optional] 
+**Key** | **string** |  | [optional] 
+**Value** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

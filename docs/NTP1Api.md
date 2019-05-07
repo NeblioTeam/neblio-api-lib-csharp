@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**GetAddressInfo**](NTP1Api.md#getaddressinfo) | **GET** /ntp1/addressinfo/{address} | Information On a Neblio Address
 [**GetTokenHolders**](NTP1Api.md#gettokenholders) | **GET** /ntp1/stakeholders/{tokenid} | Get Addresses Holding a Token
 [**GetTokenId**](NTP1Api.md#gettokenid) | **GET** /ntp1/tokenid/{tokensymbol} | Returns the tokenId representing a token
-[**GetTokenMetadataOfIssuance**](NTP1Api.md#gettokenmetadataofissuance) | **GET** /ntp1/tokenmetadata/{tokenid} | Get Issuance Metadata of Token
+[**GetTokenMetadata**](NTP1Api.md#gettokenmetadata) | **GET** /ntp1/tokenmetadata/{tokenid} | Get Metadata of Token
 [**GetTokenMetadataOfUtxo**](NTP1Api.md#gettokenmetadataofutxo) | **GET** /ntp1/tokenmetadata/{tokenid}/{utxo} | Get UTXO Metadata of Token
 [**GetTransactionInfo**](NTP1Api.md#gettransactioninfo) | **GET** /ntp1/transactioninfo/{txid} | Information On an NTP1 Transaction
 [**IssueToken**](NTP1Api.md#issuetoken) | **POST** /ntp1/issue | Builds a transaction that issues a new NTP1 Token
@@ -321,13 +321,13 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="gettokenmetadataofissuance"></a>
-# **GetTokenMetadataOfIssuance**
-> GetTokenMetadataResponse GetTokenMetadataOfIssuance (string tokenid)
+<a name="gettokenmetadata"></a>
+# **GetTokenMetadata**
+> GetTokenMetadataResponse GetTokenMetadata (string tokenid)
 
-Get Issuance Metadata of Token
+Get Metadata of Token
 
-Returns the metadata associated with a token at time of issuance. 
+Returns the metadata associated with a token. 
 
 ### Example
 ```csharp
@@ -339,7 +339,7 @@ using Neblio.API.Model;
 
 namespace Example
 {
-    public class GetTokenMetadataOfIssuanceExample
+    public class GetTokenMetadataExample
     {
         public void main()
         {
@@ -348,13 +348,13 @@ namespace Example
 
             try
             {
-                // Get Issuance Metadata of Token
-                GetTokenMetadataResponse result = apiInstance.GetTokenMetadataOfIssuance(tokenid);
+                // Get Metadata of Token
+                GetTokenMetadataResponse result = apiInstance.GetTokenMetadata(tokenid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling NTP1Api.GetTokenMetadataOfIssuance: " + e.Message );
+                Debug.Print("Exception when calling NTP1Api.GetTokenMetadata: " + e.Message );
             }
         }
     }
