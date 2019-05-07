@@ -34,6 +34,7 @@ namespace Neblio.API.Model
         /// Initializes a new instance of the <see cref="GetTokenMetadataResponse" /> class.
         /// </summary>
         /// <param name="tokenId">ID of the token.</param>
+        /// <param name="someUtxo">Example UTXO containing this token..</param>
         /// <param name="divisibility">Decimal places the token is divisible to.</param>
         /// <param name="lockStatus">Whether issuance of more tokens is locked.</param>
         /// <param name="aggregationPolicy">Whether the tokens are aggregatable.</param>
@@ -47,9 +48,10 @@ namespace Neblio.API.Model
         /// <param name="issueAddress">Address that issued the tokens.</param>
         /// <param name="metadataOfIssuence">metadataOfIssuence.</param>
         /// <param name="metadataOfUtxo">metadataOfUtxo.</param>
-        public GetTokenMetadataResponse(string tokenId = default(string), decimal? divisibility = default(decimal?), bool? lockStatus = default(bool?), string aggregationPolicy = default(string), decimal? totalSupply = default(decimal?), decimal? numOfHolders = default(decimal?), decimal? numOfTransfers = default(decimal?), decimal? numOfIssuance = default(decimal?), decimal? numOfBurns = default(decimal?), decimal? firstBlock = default(decimal?), string issuanceTxid = default(string), string issueAddress = default(string), GetTokenMetadataResponseMetadataOfIssuence metadataOfIssuence = default(GetTokenMetadataResponseMetadataOfIssuence), GetTokenMetadataResponseMetadataOfIssuence metadataOfUtxo = default(GetTokenMetadataResponseMetadataOfIssuence))
+        public GetTokenMetadataResponse(string tokenId = default(string), string someUtxo = default(string), decimal? divisibility = default(decimal?), bool? lockStatus = default(bool?), string aggregationPolicy = default(string), decimal? totalSupply = default(decimal?), decimal? numOfHolders = default(decimal?), decimal? numOfTransfers = default(decimal?), decimal? numOfIssuance = default(decimal?), decimal? numOfBurns = default(decimal?), decimal? firstBlock = default(decimal?), string issuanceTxid = default(string), string issueAddress = default(string), GetTokenMetadataResponseMetadataOfIssuence metadataOfIssuence = default(GetTokenMetadataResponseMetadataOfIssuence), GetTokenMetadataResponseMetadataOfIssuence metadataOfUtxo = default(GetTokenMetadataResponseMetadataOfIssuence))
         {
             this.TokenId = tokenId;
+            this.SomeUtxo = someUtxo;
             this.Divisibility = divisibility;
             this.LockStatus = lockStatus;
             this.AggregationPolicy = aggregationPolicy;
@@ -71,6 +73,13 @@ namespace Neblio.API.Model
         /// <value>ID of the token</value>
         [DataMember(Name="tokenId", EmitDefaultValue=false)]
         public string TokenId { get; set; }
+
+        /// <summary>
+        /// Example UTXO containing this token.
+        /// </summary>
+        /// <value>Example UTXO containing this token.</value>
+        [DataMember(Name="someUtxo", EmitDefaultValue=false)]
+        public string SomeUtxo { get; set; }
 
         /// <summary>
         /// Decimal places the token is divisible to
@@ -170,6 +179,7 @@ namespace Neblio.API.Model
             var sb = new StringBuilder();
             sb.Append("class GetTokenMetadataResponse {\n");
             sb.Append("  TokenId: ").Append(TokenId).Append("\n");
+            sb.Append("  SomeUtxo: ").Append(SomeUtxo).Append("\n");
             sb.Append("  Divisibility: ").Append(Divisibility).Append("\n");
             sb.Append("  LockStatus: ").Append(LockStatus).Append("\n");
             sb.Append("  AggregationPolicy: ").Append(AggregationPolicy).Append("\n");
@@ -221,6 +231,11 @@ namespace Neblio.API.Model
                     this.TokenId == input.TokenId ||
                     (this.TokenId != null &&
                     this.TokenId.Equals(input.TokenId))
+                ) && 
+                (
+                    this.SomeUtxo == input.SomeUtxo ||
+                    (this.SomeUtxo != null &&
+                    this.SomeUtxo.Equals(input.SomeUtxo))
                 ) && 
                 (
                     this.Divisibility == input.Divisibility ||
@@ -300,6 +315,8 @@ namespace Neblio.API.Model
                 int hashCode = 41;
                 if (this.TokenId != null)
                     hashCode = hashCode * 59 + this.TokenId.GetHashCode();
+                if (this.SomeUtxo != null)
+                    hashCode = hashCode * 59 + this.SomeUtxo.GetHashCode();
                 if (this.Divisibility != null)
                     hashCode = hashCode * 59 + this.Divisibility.GetHashCode();
                 if (this.LockStatus != null)
