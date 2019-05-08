@@ -25,35 +25,25 @@ using OpenAPIDateConverter = Neblio.API.Client.OpenAPIDateConverter;
 namespace Neblio.API.Model
 {
     /// <summary>
-    /// Object containing an array of transaction objects
+    /// Metadata set for UTXO
     /// </summary>
     [DataContract]
-    public partial class GetTxsResponse :  IEquatable<GetTxsResponse>, IValidatableObject
+    public partial class GetTokenMetadataResponseMetadataOfUtxo :  IEquatable<GetTokenMetadataResponseMetadataOfUtxo>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetTxsResponse" /> class.
+        /// Initializes a new instance of the <see cref="GetTokenMetadataResponseMetadataOfUtxo" /> class.
         /// </summary>
-        /// <param name="pagesTotal">Number of pages of transactions.</param>
-        /// <param name="txs">Array of transaction objects.</param>
-        public GetTxsResponse(decimal? pagesTotal = default(decimal?), List<GetTxResponse> txs = default(List<GetTxResponse>))
+        /// <param name="userData">userData.</param>
+        public GetTokenMetadataResponseMetadataOfUtxo(GetTokenMetadataResponseMetadataOfUtxoUserData userData = default(GetTokenMetadataResponseMetadataOfUtxoUserData))
         {
-            this.PagesTotal = pagesTotal;
-            this.Txs = txs;
+            this.UserData = userData;
         }
         
         /// <summary>
-        /// Number of pages of transactions
+        /// Gets or Sets UserData
         /// </summary>
-        /// <value>Number of pages of transactions</value>
-        [DataMember(Name="pagesTotal", EmitDefaultValue=false)]
-        public decimal? PagesTotal { get; set; }
-
-        /// <summary>
-        /// Array of transaction objects
-        /// </summary>
-        /// <value>Array of transaction objects</value>
-        [DataMember(Name="txs", EmitDefaultValue=false)]
-        public List<GetTxResponse> Txs { get; set; }
+        [DataMember(Name="userData", EmitDefaultValue=false)]
+        public GetTokenMetadataResponseMetadataOfUtxoUserData UserData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +52,8 @@ namespace Neblio.API.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class GetTxsResponse {\n");
-            sb.Append("  PagesTotal: ").Append(PagesTotal).Append("\n");
-            sb.Append("  Txs: ").Append(Txs).Append("\n");
+            sb.Append("class GetTokenMetadataResponseMetadataOfUtxo {\n");
+            sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +74,24 @@ namespace Neblio.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GetTxsResponse);
+            return this.Equals(input as GetTokenMetadataResponseMetadataOfUtxo);
         }
 
         /// <summary>
-        /// Returns true if GetTxsResponse instances are equal
+        /// Returns true if GetTokenMetadataResponseMetadataOfUtxo instances are equal
         /// </summary>
-        /// <param name="input">Instance of GetTxsResponse to be compared</param>
+        /// <param name="input">Instance of GetTokenMetadataResponseMetadataOfUtxo to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GetTxsResponse input)
+        public bool Equals(GetTokenMetadataResponseMetadataOfUtxo input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.PagesTotal == input.PagesTotal ||
-                    (this.PagesTotal != null &&
-                    this.PagesTotal.Equals(input.PagesTotal))
-                ) && 
-                (
-                    this.Txs == input.Txs ||
-                    this.Txs != null &&
-                    this.Txs.SequenceEqual(input.Txs)
+                    this.UserData == input.UserData ||
+                    (this.UserData != null &&
+                    this.UserData.Equals(input.UserData))
                 );
         }
 
@@ -120,10 +104,8 @@ namespace Neblio.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PagesTotal != null)
-                    hashCode = hashCode * 59 + this.PagesTotal.GetHashCode();
-                if (this.Txs != null)
-                    hashCode = hashCode * 59 + this.Txs.GetHashCode();
+                if (this.UserData != null)
+                    hashCode = hashCode * 59 + this.UserData.GetHashCode();
                 return hashCode;
             }
         }
