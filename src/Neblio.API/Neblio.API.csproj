@@ -4,7 +4,7 @@ Neblio REST API Suite
 
 APIs for Interacting with NTP1 Tokens & The Neblio Blockchain
 
-OpenAPI spec version: 1.2.3
+OpenAPI spec version: 1.2.4
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -12,7 +12,7 @@ OpenAPI spec version: 1.2.3
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{96FAE0C6-5092-42DD-967D-4A54F27C3BBB}</ProjectGuid>
+    <ProjectGuid>{300229E0-AB26-4959-B00A-CBB1FEEEF67D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Neblio.API</RootNamespace>
