@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Issuer** | **string** | Name of token issuer | [optional] 
 **Description** | **string** | Long name or description of token (ex. Nibble) | [optional] 
 **Urls** | [**List&lt;IssueTokenRequestMetadataUrls&gt;**](IssueTokenRequestMetadataUrls.md) |  | [optional] 
-**UserData** | [**GetTokenMetadataResponseMetadataOfIssuenceDataUserData**](GetTokenMetadataResponseMetadataOfIssuenceDataUserData.md) |  | [optional] 
+**UserData** | [**GetTokenMetadataResponseMetadataOfIssuanceDataUserData**](GetTokenMetadataResponseMetadataOfIssuanceDataUserData.md) |  | [optional] 
 **Encryptions** | [**List&lt;IssueTokenRequestMetadataEncryptions&gt;**](IssueTokenRequestMetadataEncryptions.md) | Array of encryption instruction objects for encrypting userData | [optional] 
 **Rules** | [**IssueTokenRequestMetadataRules**](IssueTokenRequestMetadataRules.md) |  | [optional] 
 

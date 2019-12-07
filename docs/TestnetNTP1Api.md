@@ -323,7 +323,7 @@ No authorization required
 
 <a name="testnetgettokenmetadata"></a>
 # **TestnetGetTokenMetadata**
-> GetTokenMetadataResponse TestnetGetTokenMetadata (string tokenid)
+> GetTokenMetadataResponse TestnetGetTokenMetadata (string tokenid, decimal? verbosity = null)
 
 Get Metadata of Token
 
@@ -345,11 +345,12 @@ namespace Example
         {
             var apiInstance = new TestnetNTP1Api();
             var tokenid = tokenid_example;  // string | TokenId to request metadata for
+            var verbosity = 8.14;  // decimal? | 0 (Default) is fastest, 1 contains token stats, 2 contains token holding addresses (optional) 
 
             try
             {
                 // Get Metadata of Token
-                GetTokenMetadataResponse result = apiInstance.TestnetGetTokenMetadata(tokenid);
+                GetTokenMetadataResponse result = apiInstance.TestnetGetTokenMetadata(tokenid, verbosity);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -366,6 +367,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tokenid** | **string**| TokenId to request metadata for | 
+ **verbosity** | **decimal?**| 0 (Default) is fastest, 1 contains token stats, 2 contains token holding addresses | [optional] 
 
 ### Return type
 
@@ -384,7 +386,7 @@ No authorization required
 
 <a name="testnetgettokenmetadataofutxo"></a>
 # **TestnetGetTokenMetadataOfUtxo**
-> GetTokenMetadataResponse TestnetGetTokenMetadataOfUtxo (string tokenid, string utxo)
+> GetTokenMetadataResponse TestnetGetTokenMetadataOfUtxo (string tokenid, string utxo, decimal? verbosity = null)
 
 Get UTXO Metadata of Token
 
@@ -407,11 +409,12 @@ namespace Example
             var apiInstance = new TestnetNTP1Api();
             var tokenid = tokenid_example;  // string | TokenId to request metadata for
             var utxo = utxo_example;  // string | Specific UTXO to request metadata for
+            var verbosity = 8.14;  // decimal? | 0 (Default) is fastest, 1 contains token stats, 2 contains token holding addresses (optional) 
 
             try
             {
                 // Get UTXO Metadata of Token
-                GetTokenMetadataResponse result = apiInstance.TestnetGetTokenMetadataOfUtxo(tokenid, utxo);
+                GetTokenMetadataResponse result = apiInstance.TestnetGetTokenMetadataOfUtxo(tokenid, utxo, verbosity);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -429,6 +432,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tokenid** | **string**| TokenId to request metadata for | 
  **utxo** | **string**| Specific UTXO to request metadata for | 
+ **verbosity** | **decimal?**| 0 (Default) is fastest, 1 contains token stats, 2 contains token holding addresses | [optional] 
 
 ### Return type
 
