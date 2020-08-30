@@ -353,7 +353,7 @@ namespace Example
             try
             {
                 // Returns all UTXOs at a given address
-                List&lt;Object&gt; result = apiInstance.TestnetGetAddressUtxos(address);
+                List<Object> result = apiInstance.TestnetGetAddressUtxos(address);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
