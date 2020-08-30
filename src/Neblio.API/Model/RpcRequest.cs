@@ -42,7 +42,7 @@ namespace Neblio.API.Model
         /// <param name="id">Identifier of RCP caller (required) (default to &quot;neblio-apis&quot;).</param>
         /// <param name="method">Name of the Neblio RPC method to call (required).</param>
         /// <param name="_params">Array of string params that should be passed to the RPC method. (required).</param>
-        public RpcRequest(string jsonrpc = "1.0", string id = "neblio-apis", string method = default(string), List<string> _params = default(List<string>))
+        public RpcRequest(string jsonrpc = "1.0", string id = "neblio-apis", string method = default(string), List<Object> _params = default(List<Object>))
         {
             // to ensure "jsonrpc" is required (not null)
             if (jsonrpc == null)
@@ -108,7 +108,7 @@ namespace Neblio.API.Model
         /// </summary>
         /// <value>Array of string params that should be passed to the RPC method.</value>
         [DataMember(Name="params", EmitDefaultValue=false)]
-        public List<string> Params { get; set; }
+        public List<Object> Params { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
