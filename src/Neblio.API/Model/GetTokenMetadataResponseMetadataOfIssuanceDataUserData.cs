@@ -34,7 +34,7 @@ namespace Neblio.API.Model
         /// Initializes a new instance of the <see cref="GetTokenMetadataResponseMetadataOfIssuanceDataUserData" /> class.
         /// </summary>
         /// <param name="meta">meta.</param>
-        public GetTokenMetadataResponseMetadataOfIssuanceDataUserData(List<GetTokenMetadataResponseMetadataOfIssuanceDataUserDataMeta> meta = default(List<GetTokenMetadataResponseMetadataOfIssuanceDataUserDataMeta>))
+        public GetTokenMetadataResponseMetadataOfIssuanceDataUserData(List<object> meta = default(List<object>))
         {
             this.Meta = meta;
         }
@@ -43,7 +43,7 @@ namespace Neblio.API.Model
         /// Gets or Sets Meta
         /// </summary>
         [DataMember(Name="meta", EmitDefaultValue=false)]
-        public List<GetTokenMetadataResponseMetadataOfIssuanceDataUserDataMeta> Meta { get; set; }
+        public List<object> Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
